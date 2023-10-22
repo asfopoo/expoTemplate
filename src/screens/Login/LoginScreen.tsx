@@ -2,7 +2,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Formik } from 'formik';
 import { Text, StyleSheet, KeyboardAvoidingView, View } from 'react-native';
 
-import { LOGIN_BUTTONS, INITIAL_VALUES } from './constants';
+import { LOGIN_BUTTONS, INITIAL_VALUES } from './Login.constants';
 import Input from '../../components/Input';
 import Pressable from '../../components/Pressable';
 import { useAuth } from '../../hooks/useAuth';

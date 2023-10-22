@@ -19,6 +19,11 @@ export const REGISTRATION_BUTTONS = [
     label: 'Password',
     placeholder: 'Enter your password',
   },
+  {
+    identifier: 'confirmPassword',
+    label: 'Confirm Password',
+    placeholder: 'Confirm your password',
+  },
 ];
 
 export const INITIAL_VALUES = {

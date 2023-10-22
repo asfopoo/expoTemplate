@@ -7,12 +7,12 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { REGISTRATION_BUTTONS, INITIAL_VALUES } from './constants';
+import { REGISTRATION_BUTTONS, INITIAL_VALUES } from './Registration.constants';
 import Input from '../../components/Input';
 import Pressable from '../../components/Pressable';
 import { PUBLIC_ROUTES } from '../../navigation/routes';
 import { RegistrationScreenNavigationProp } from '../../navigation/types';
-import { loginSchema } from '../../utils/validationSchemas/loginValidation';
+import { registrationSchema } from '../../utils/validationSchemas/registrationValidation';
 
 // TODO: Keyboard aware scroll view
 
@@ -25,9 +25,9 @@ export default function RegistrationScreen() {
         <Formik
           initialValues={INITIAL_VALUES}
           onSubmit={(values) => {
-            console.log('register');
+            navigation.navigate(PUBLIC_ROUTES.ORGANIZATION_REGISTRATION_SCREEN);
           }}
-          validationSchema={loginSchema} // TODO: registration schema
+          // validationSchema={registrationSchema}
         >
           {({
             handleChange,
@@ -54,17 +54,12 @@ export default function RegistrationScreen() {
                 );
               })}
               <Pressable onPress={() => handleSubmit()}>
-                <Text>Login</Text>
+                <Text>Submit</Text>
               </Pressable>
             </>
           )}
         </Formik>
       </KeyboardAvoidingView>
-      <Pressable
-        onPress={() => navigation.navigate(PUBLIC_ROUTES.LOGIN_SCREEN)} // tODO read the docs
-      >
-        <Text>Submit</Text>
-      </Pressable>
     </ScrollView>
   );
 }
