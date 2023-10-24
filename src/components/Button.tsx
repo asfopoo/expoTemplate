@@ -1,10 +1,7 @@
 import { Pressable, Text, StyleSheet, PressableProps } from 'react-native';
+import { COLORS } from '../theme/colors';
 
-type ButtonVariants =
-  | 'primary'
-  | 'secondary'
-  | 'primaryRounded'
-  | 'secondaryRounded';
+type ButtonVariants = 'primaryRounded' | 'secondaryRounded';
 
 type Props = PressableProps & {
   variant?: ButtonVariants;
@@ -13,38 +10,44 @@ type Props = PressableProps & {
 };
 
 export default function Button(props: Props) {
-  const { variant = 'primary', label, styleProp, ...rest } = props;
+  const { variant = 'primaryRounded', label, styleProp, ...rest } = props;
   const style = [styles[variant], styleProp];
 
   return (
     <Pressable style={style} {...rest}>
-      <Text>{label}</Text>
+      <Text style={styles[`${variant}Text`]}>{label}</Text>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   primaryRounded: {
-    borderRadius: 15,
+    borderRadius: 25,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: COLORS.NAVY_BLUE,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    backgroundColor: 'gray',
+    backgroundColor: COLORS.NAVY_BLUE,
+    height: 50,
+    width: '90%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   secondaryRounded: {
-    borderRadius: 15,
+    borderRadius: 25,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: COLORS.NAVY_BLUE,
     paddingVertical: 10,
     paddingHorizontal: 20,
+    height: 50,
+    width: '90%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  primary: {
-    borderWidth: 1,
-    borderColor: 'black',
+  primaryRoundedText: {
+    color: COLORS.WHITE,
   },
-  secondary: {
-    borderWidth: 1,
-    borderColor: 'black',
+  secondaryRoundedText: {
+    color: COLORS.NAVY_BLUE,
   },
 });

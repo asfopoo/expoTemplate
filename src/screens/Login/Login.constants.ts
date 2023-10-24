@@ -8,6 +8,7 @@ export const LOGIN_BUTTONS = [
     identifier: 'password',
     label: 'Password',
     placeholder: 'Enter your password',
+    secureTextEntry: true,
   },
 ];
 

@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
 
 import { useAuth } from '../hooks/useAuth';
 
@@ -10,7 +10,9 @@ export default function SettingsScreen() {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <SafeAreaView
+      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+    >
       <Text>Settings screen</Text>
       <Text>Account - subscription, organization, profile details</Text>
       <Text>
@@ -23,6 +25,6 @@ export default function SettingsScreen() {
       <Text>Manage org members</Text>
       <Text>Leave org </Text>
       <Text onPress={handleSignOut}>Sign out</Text>
-    </View>
+    </SafeAreaView>
   );
 }

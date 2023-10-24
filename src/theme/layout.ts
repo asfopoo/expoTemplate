@@ -1,0 +1,17 @@
+export const TEXT_SIZES = {
+  TEXT12: 12,
+  TEXT14: 14,
+  TEXT16: 16,
+  TEXT18: 18,
+  TEXT20: 20,
+  TEXT22: 22,
+  TEXT24: 24,
+  TEXT26: 26,
+  TEXT28: 28,
+  TEXT30: 30,
+  TEXT32: 32,
+  TEXT34: 34,
+  TEXT36: 36,
+  TEXT38: 38,
+  TEXT40: 40,
+};

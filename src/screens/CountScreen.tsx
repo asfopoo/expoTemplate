@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
 
 import useAsyncStorage from '../hooks/useAsyncStorage';
 
@@ -20,12 +20,14 @@ export default function CountScreen() {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <SafeAreaView
+      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+    >
       <Text>Count screen</Text>
       <Text>Count: {count}</Text>
       <Text onPress={incrementCount}>Press to increment</Text>
       <Text onPress={decrementCount}>Press to decrement</Text>
       <Text onPress={resetCount}>Press to reset</Text>
-    </View>
+    </SafeAreaView>
   );
 }
