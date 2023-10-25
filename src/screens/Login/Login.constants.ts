@@ -2,12 +2,12 @@ export const LOGIN_BUTTONS = [
   {
     identifier: 'email',
     label: 'Email',
-    placeholder: 'Enter your email',
+    placeholder: 'Email',
   },
   {
     identifier: 'password',
     label: 'Password',
-    placeholder: 'Enter your password',
+    placeholder: 'Password',
     secureTextEntry: true,
   },
 ];

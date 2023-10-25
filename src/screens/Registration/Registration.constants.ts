@@ -2,22 +2,22 @@ export const REGISTRATION_BUTTONS = [
   {
     identifier: 'firstName',
     label: 'First Name',
-    placeholder: 'Enter your first name',
+    placeholder: 'First Name',
   },
   {
     identifier: 'lastName',
     label: 'Last Name',
-    placeholder: 'Enter your last name',
+    placeholder: 'Last Name',
   },
   {
     identifier: 'email',
     label: 'Email',
-    placeholder: 'Enter your email',
+    placeholder: 'Email',
   },
   {
     identifier: 'password',
     label: 'Password',
-    placeholder: 'Enter your password',
+    placeholder: 'Password',
   },
   {
     identifier: 'confirmPassword',

@@ -1,9 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
-import { useReducer } from 'react';
+import { useLayoutEffect, useReducer } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native';
 
 import OrganizationModal from './modals/OrganizationModal';
 import Button from '../../components/Button';
+import Header from '../../components/Header';
 import Pressable from '../../components/Pressable';
 import { PUBLIC_ROUTES } from '../../navigation/routes';
 import { OrganizationRegistrationScreenNavigationProp } from '../../navigation/types';
@@ -16,8 +17,15 @@ export default function OrganizationScreen() {
   const navigation =
     useNavigation<OrganizationRegistrationScreenNavigationProp>();
 
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, [navigation]);
+
   return (
     <SafeAreaView style={styles.container}>
+      <Header {...{ navigation }} />
       <View style={styles.imageContainer}>
         <Image
           source={require('../../assets/organizational-design-cover.png')}
@@ -45,7 +53,7 @@ export default function OrganizationScreen() {
             onPress={() => toggleModal()}
           />
         </View>
-        <Pressable>
+        <Pressable style={styles.marginBottom}>
           <Text onPress={() => navigation.navigate(PUBLIC_ROUTES.LOGIN_SCREEN)}>
             Skip this step for now.
           </Text>
@@ -92,7 +100,6 @@ const styles = StyleSheet.create({
     height: '30%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 40,
   },
   image: {
     width: '100%',

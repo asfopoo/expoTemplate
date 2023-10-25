@@ -1,4 +1,5 @@
 import { Pressable, Text, StyleSheet, PressableProps } from 'react-native';
+
 import { COLORS } from '../theme/colors';
 
 type ButtonVariants = 'primaryRounded' | 'secondaryRounded';

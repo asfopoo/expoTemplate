@@ -10,16 +10,15 @@ import {
 import { COLORS } from '../theme/colors';
 
 type InputProps = TextInputProps & {
-  label: string;
+  label?: string;
   error?: string;
   touched?: boolean;
 };
 
 export default function Input(props: InputProps) {
-  const { label, error, touched, ...rest } = props;
+  const { label, error, touched, ...rest } = props; // TODO label no longer used, remove it
   return (
     <View>
-      <Text style={error && touched ? styles.errorText : null}>{label}</Text>
       <TextInput
         style={[
           styles.inputStyle,
@@ -39,8 +38,7 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     height: 40,
-    borderWidth: 1,
-    borderRadius: 5,
+    borderBottomWidth: 1,
     paddingHorizontal: 10,
     marginVertical: 5,
   },
