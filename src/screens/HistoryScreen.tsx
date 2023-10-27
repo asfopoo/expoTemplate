@@ -1,12 +1,11 @@
 import { Text, SafeAreaView } from 'react-native';
 
-export default function ChatScreen() {
+export default function HistoryScreen() {
   return (
     <SafeAreaView
       style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
     >
-      <Text>Chat screen s </Text>
-      <Text>Subscribe to enable chat within your organization</Text>
+      <Text>History screen</Text>
     </SafeAreaView>
   );
 }

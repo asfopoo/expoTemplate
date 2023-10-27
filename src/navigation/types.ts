@@ -10,6 +10,8 @@ import type {
 
 import { PRIVATE_ROUTES, PUBLIC_ROUTES, TAB_ROUTES } from './routes';
 
+/** Public Routes  **/
+
 export type AuthStackParamList = {
   [PUBLIC_ROUTES.LOGIN_SCREEN]: undefined;
   [PUBLIC_ROUTES.REGISTRATION_SCREEN]: undefined;
@@ -31,19 +33,22 @@ export type OrganizationRegistrationScreenNavigationProp = StackNavigationProp<
   'Organization Registration'
 >;
 
+export type RootStackScreenProps<T extends keyof RootStackParamList> =
+  StackScreenProps<RootStackParamList, T>;
+
+export type AuthStackScreenProps<T extends keyof AuthStackParamList> =
+  StackScreenProps<AuthStackParamList, T>;
+
+/** Private routes **/
+
 export type RootStackParamList = {
   [TAB_ROUTES.CHAT_TAB]: NavigatorScreenParams<ChatTabParamList>;
   [TAB_ROUTES.COUNT_TAB]: NavigatorScreenParams<CountTabParamList>;
   [TAB_ROUTES.SCANNER_TAB]: NavigatorScreenParams<ScannerTabParamList>;
   [TAB_ROUTES.SETTINGS_TAB]: NavigatorScreenParams<SettingsTabParamList>;
   [TAB_ROUTES.PROFILE_TAB]: NavigatorScreenParams<ProfileTabParamList>;
+  [TAB_ROUTES.HISTORY_TAB]: NavigatorScreenParams<HistoryTabParamList>;
 };
-
-export type RootStackScreenProps<T extends keyof RootStackParamList> =
-  StackScreenProps<RootStackParamList, T>;
-
-export type AuthStackScreenProps<T extends keyof AuthStackParamList> =
-  StackScreenProps<AuthStackParamList, T>;
 
 export type ChatTabScreenProps<T extends keyof ChatTabParamList> =
   CompositeScreenProps<
@@ -75,6 +80,12 @@ export type ProfileTabScreenProps<T extends keyof ProfileTabParamList> =
     RootStackScreenProps<keyof RootStackParamList>
   >;
 
+export type HistoryTabScreenProps<T extends keyof HistoryTabParamList> =
+  CompositeScreenProps<
+    BottomTabScreenProps<HistoryTabParamList, T>,
+    RootStackScreenProps<keyof RootStackParamList>
+  >;
+
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends RootStackParamList {}
@@ -101,10 +112,15 @@ export type ProfileTabParamList = {
   [PRIVATE_ROUTES.PROFILE_SCREEN]: undefined;
 };
 
+export type HistoryTabParamList = {
+  [PRIVATE_ROUTES.HISTORY_SCREEN]: undefined;
+};
+
 export type TabNavigatorParamList = {
   [TAB_ROUTES.CHAT_TAB]: undefined;
   [TAB_ROUTES.COUNT_TAB]: undefined;
   [TAB_ROUTES.SCANNER_TAB]: undefined;
   [TAB_ROUTES.SETTINGS_TAB]: undefined;
   [TAB_ROUTES.PROFILE_TAB]: undefined;
+  [TAB_ROUTES.HISTORY_TAB]: undefined;
 };
