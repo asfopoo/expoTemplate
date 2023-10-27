@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 
 import { REGISTRATION_BUTTONS, INITIAL_VALUES } from './Registration.constants';
+import ButtonLinearGradient from '../../components/ButtonLinearGradient';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 import ScannerLogo from '../../components/ScannerLogo';
 import { PUBLIC_ROUTES } from '../../navigation/routes';
 import { RegistrationScreenNavigationProp } from '../../navigation/types';
 import { registrationSchema } from '../../utils/validationSchemas/registrationValidation';
-import ButtonLinearGradient from '../../components/ButtonLinearGradient';
 
 // TODO: Scrollview android?
 

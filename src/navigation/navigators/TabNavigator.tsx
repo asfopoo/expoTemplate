@@ -1,3 +1,8 @@
+import {
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Ionicons,
+} from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import SettingsScreen from '../../screens/Settings/SettingsScreen';
@@ -15,11 +20,11 @@ export function TabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: COLORS.RED,
+        tabBarActiveTintColor: COLORS.NAVY_BLUE,
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: COLORS.BLACK,
-          borderTopColor: 'transparent',
+          backgroundColor: COLORS.WHITE,
+          borderTopColor: COLORS.MEDIUM_GRAY,
           position: 'absolute',
           left: 0,
           right: 0,
@@ -28,11 +33,53 @@ export function TabNavigator() {
         },
       }}
     >
-      <Tab.Screen name={TAB_ROUTES.COUNT_TAB} component={CountStack} />
-      <Tab.Screen name={TAB_ROUTES.SCANNER_TAB} component={ScannerStack} />
-      {/* <Tab.Screen name={TAB_ROUTES.CHAT_TAB} component={ChatStack} /> */}
-      <Tab.Screen name={TAB_ROUTES.PROFILE_TAB} component={ProfileStack} />
-      <Tab.Screen name={TAB_ROUTES.SETTINGS_TAB} component={SettingsScreen} />
+      <Tab.Screen
+        name={TAB_ROUTES.COUNT_TAB}
+        component={CountStack}
+        options={{
+          tabBarLabel: 'Counter',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="counter" {...{ color, size }} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={TAB_ROUTES.SCANNER_TAB}
+        component={ScannerStack}
+        options={{
+          tabBarLabel: 'Scanner',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="qr-code-scanner" {...{ color, size }} />
+          ),
+        }}
+      />
+      {/* <Tab.Screen name={TAB_ROUTES.CHAT_TAB} component={ChatStack} 
+            options={{
+              tabBarLabel: 'Chat',
+              tabBarIcon: ({ color, size }) => (
+                <Entypo name="chat" {...{ color, size }} />
+              ),
+            }} /> */}
+      <Tab.Screen
+        name={TAB_ROUTES.PROFILE_TAB}
+        component={ProfileStack}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person-outline" {...{ color, size }} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name={TAB_ROUTES.SETTINGS_TAB}
+        component={SettingsScreen}
+        options={{
+          tabBarLabel: 'Settings',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="md-settings-outline" {...{ color, size }} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
