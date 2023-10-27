@@ -9,6 +9,7 @@ export const PRIVATE_ROUTES = {
   COUNT_SCREEN: 'Count',
   SCANNER_SCREEN: 'Scanner',
   SETTINGS_SCREEN: 'Settings',
+  PROFILE_SCREEN: 'Profile',
 } as const;
 
 export const TAB_ROUTES = {
@@ -16,4 +17,5 @@ export const TAB_ROUTES = {
   COUNT_TAB: 'Count Tab',
   SCANNER_TAB: 'Scanner Tab',
   SETTINGS_TAB: 'Settings Tab',
+  PROFILE_TAB: 'Profile Tab',
 } as const;

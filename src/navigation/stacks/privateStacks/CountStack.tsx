@@ -2,9 +2,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import CountScreen from '../../../screens/Count/CountScreen';
 import { PRIVATE_ROUTES } from '../../routes';
-import { CountStackParamList } from '../../types';
+import { CountTabParamList } from '../../types';
 
-const CountStackNavigator = createNativeStackNavigator<CountStackParamList>();
+const CountStackNavigator = createNativeStackNavigator<CountTabParamList>();
 
 export default function CountStack() {
   return (

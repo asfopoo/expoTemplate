@@ -2,9 +2,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import ChatScreen from '../../../screens/ChatScreen';
 import { PRIVATE_ROUTES } from '../../routes';
-import { ChatStackParamList } from '../../types';
+import { ChatTabParamList } from '../../types';
 
-const ChatStackNavigator = createNativeStackNavigator<ChatStackParamList>();
+const ChatStackNavigator = createNativeStackNavigator<ChatTabParamList>();
 
 export default function ChatStack() {
   return (

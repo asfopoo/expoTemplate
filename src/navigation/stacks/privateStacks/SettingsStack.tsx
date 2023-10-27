@@ -2,10 +2,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import SettingsScreen from '../../../screens/ScannerScreen';
 import { PRIVATE_ROUTES } from '../../routes';
-import { SettingsStackParamList } from '../../types';
+import { SettingsTabParamList } from '../../types';
 
 const SettingsStackNavigator =
-  createNativeStackNavigator<SettingsStackParamList>();
+  createNativeStackNavigator<SettingsTabParamList>();
 
 export default function SettingsStack() {
   return (

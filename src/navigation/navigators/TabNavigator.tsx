@@ -1,10 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import SettingsScreen from '../../screens/SettingsScreen';
+import SettingsScreen from '../../screens/Settings/SettingsScreen';
 import { COLORS } from '../../theme/colors';
 import { TAB_ROUTES } from '../routes';
 import ChatStack from '../stacks/privateStacks/ChatStack';
 import CountStack from '../stacks/privateStacks/CountStack';
+import ProfileStack from '../stacks/privateStacks/ProfileStack';
 import ScannerStack from '../stacks/privateStacks/ScannerStack';
 import { TabNavigatorParamList } from '../types';
 
@@ -29,7 +30,8 @@ export function TabNavigator() {
     >
       <Tab.Screen name={TAB_ROUTES.COUNT_TAB} component={CountStack} />
       <Tab.Screen name={TAB_ROUTES.SCANNER_TAB} component={ScannerStack} />
-      <Tab.Screen name={TAB_ROUTES.CHAT_TAB} component={ChatStack} />
+      {/* <Tab.Screen name={TAB_ROUTES.CHAT_TAB} component={ChatStack} /> */}
+      <Tab.Screen name={TAB_ROUTES.PROFILE_TAB} component={ProfileStack} />
       <Tab.Screen name={TAB_ROUTES.SETTINGS_TAB} component={SettingsScreen} />
     </Tab.Navigator>
   );

@@ -36,6 +36,7 @@ export type RootStackParamList = {
   [TAB_ROUTES.COUNT_TAB]: NavigatorScreenParams<CountTabParamList>;
   [TAB_ROUTES.SCANNER_TAB]: NavigatorScreenParams<ScannerTabParamList>;
   [TAB_ROUTES.SETTINGS_TAB]: NavigatorScreenParams<SettingsTabParamList>;
+  [TAB_ROUTES.PROFILE_TAB]: NavigatorScreenParams<ProfileTabParamList>;
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
@@ -68,6 +69,12 @@ export type SettingsTabScreenProps<T extends keyof SettingsTabParamList> =
     RootStackScreenProps<keyof RootStackParamList>
   >;
 
+export type ProfileTabScreenProps<T extends keyof ProfileTabParamList> =
+  CompositeScreenProps<
+    BottomTabScreenProps<ProfileTabParamList, T>,
+    RootStackScreenProps<keyof RootStackParamList>
+  >;
+
 declare global {
   namespace ReactNavigation {
     interface RootParamList extends RootStackParamList {}
@@ -90,9 +97,14 @@ export type SettingsTabParamList = {
   [PRIVATE_ROUTES.SETTINGS_SCREEN]: undefined;
 };
 
+export type ProfileTabParamList = {
+  [PRIVATE_ROUTES.PROFILE_SCREEN]: undefined;
+};
+
 export type TabNavigatorParamList = {
   [TAB_ROUTES.CHAT_TAB]: undefined;
   [TAB_ROUTES.COUNT_TAB]: undefined;
   [TAB_ROUTES.SCANNER_TAB]: undefined;
   [TAB_ROUTES.SETTINGS_TAB]: undefined;
+  [TAB_ROUTES.PROFILE_TAB]: undefined;
 };

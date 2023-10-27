@@ -2,10 +2,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import ScannerScreen from '../../../screens/ScannerScreen';
 import { PRIVATE_ROUTES } from '../../routes';
-import { ScannerStackParamList } from '../../types';
+import { ScannerTabParamList } from '../../types';
 
-const ScannerStackNavigator =
-  createNativeStackNavigator<ScannerStackParamList>();
+const ScannerStackNavigator = createNativeStackNavigator<ScannerTabParamList>();
 
 export default function ScannerStack() {
   return (
