@@ -3,7 +3,7 @@ import { useLayoutEffect, useReducer } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native';
 
 import OrganizationModal from './modals/OrganizationModal';
-import Button from '../../components/Button';
+import ButtonLinearGradient from '../../components/ButtonLinearGradient';
 import Header from '../../components/Header';
 import Pressable from '../../components/Pressable';
 import { PUBLIC_ROUTES } from '../../navigation/routes';
@@ -47,7 +47,7 @@ export default function OrganizationScreen() {
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.marginBottom}>
-          <Button
+          <ButtonLinearGradient
             label="yes"
             variant="primaryRounded"
             onPress={() => toggleModal()}

@@ -2,7 +2,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { memo } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
-import Button from '../../../components/Button';
+import ButtonLinearGradient from '../../../components/ButtonLinearGradient';
 import Input from '../../../components/Input';
 import Pressable from '../../../components/Pressable';
 import FullScreenModal from '../../../modals/FullScreenModal';
@@ -40,7 +40,7 @@ const OrganziationModal = memo(function OrganziationModal({
           <View style={styles.marginBottom}>
             <Input placeholder="Email" />
           </View>
-          <Button label="Submit" variant="primaryRounded" />
+          <ButtonLinearGradient label="Submit" variant="primaryRounded" />
         </View>
         <View style={styles.closeIcon}>
           <Pressable onPress={toggleModal}>

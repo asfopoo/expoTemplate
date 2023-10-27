@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import { LOGIN_BUTTONS, INITIAL_VALUES } from './Login.constants';
-import Button from '../../components/Button';
+import ButtonLinearGradient from '../../components/ButtonLinearGradient';
 import Input from '../../components/Input';
 import Pressable from '../../components/Pressable';
 import ScannerLogo from '../../components/ScannerLogo';
@@ -77,7 +77,7 @@ export default function LoginScreen({ navigation }: Props) {
               </Pressable> */}
               <View style={styles.registrationContainer}>
                 <View style={styles.loginButtonContainer}>
-                  <Button
+                  <ButtonLinearGradient
                     label="Login"
                     variant="primaryRounded"
                     onPress={() => handleSubmit()}

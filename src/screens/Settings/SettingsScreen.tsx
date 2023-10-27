@@ -1,4 +1,4 @@
-import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
+import { StyleSheet, SafeAreaView, View } from 'react-native';
 
 import { settingsOptions } from './Settings.constants';
 import OptionsList from '../../components/OptionsList';

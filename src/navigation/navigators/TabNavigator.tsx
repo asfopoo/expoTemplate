@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SettingsScreen from '../../screens/Settings/SettingsScreen';
 import { COLORS } from '../../theme/colors';
 import { TAB_ROUTES } from '../routes';
-import ChatStack from '../stacks/privateStacks/ChatStack';
+// import ChatStack from '../stacks/privateStacks/ChatStack';
 import CountStack from '../stacks/privateStacks/CountStack';
 import ProfileStack from '../stacks/privateStacks/ProfileStack';
 import ScannerStack from '../stacks/privateStacks/ScannerStack';
