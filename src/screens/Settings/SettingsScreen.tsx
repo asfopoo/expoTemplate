@@ -26,6 +26,6 @@ export default function SettingsScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    paddingTop: 40,
   },
 });

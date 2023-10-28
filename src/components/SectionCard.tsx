@@ -19,7 +19,7 @@ export default function SectionCard({ children }: Props) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '40%',
+    height: '45%',
     position: 'absolute',
     bottom: 0,
     backgroundColor: COLORS.WHITE,

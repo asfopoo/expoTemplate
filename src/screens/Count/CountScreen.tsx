@@ -1,6 +1,8 @@
 import { AntDesign } from '@expo/vector-icons';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useLayoutEffect } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, Alert } from 'react-native';
 
 import Button from '../../components/Button';
@@ -8,12 +10,21 @@ import CircularView from '../../components/CircularView';
 import SectionCard from '../../components/SectionCard';
 import ShadowCard from '../../components/ShadowCard';
 import useAsyncStorage from '../../hooks/useAsyncStorage';
+import { RootStackParamList } from '../../navigation/types';
 import { COLORS } from '../../theme/colors';
 import { TEXT_SIZES } from '../../theme/layout';
 
-export default function CountScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
+
+export default function CountScreen({ navigation }: Props) {
   const { getData, storeData } = useAsyncStorage('count', 0);
   const count = parseInt(getData, 10);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, [navigation]);
 
   const incrementCount = () => {
     if (count === 9999) return;
@@ -83,10 +94,10 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     top: 0,
-    height: '60%',
+    height: '65%',
   },
   contentContainer: {
-    height: '60%',
+    height: '50%',
     justifyContent: 'center',
     alignItems: 'center',
   },
