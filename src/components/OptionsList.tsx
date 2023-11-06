@@ -1,3 +1,6 @@
+/*
+ * Used in SettingsScreen.tsx
+ */
 import { MaterialIcons } from '@expo/vector-icons';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 

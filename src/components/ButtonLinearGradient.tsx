@@ -11,16 +11,23 @@ type ButtonVariants =
 type Props = PressableProps & {
   variant?: ButtonVariants;
   styleProp?: any;
+  colors?: string[];
   label: string;
 };
 
 export default function ButtonLinearGradient(props: Props) {
-  const { variant = 'primaryRounded', label, styleProp, ...rest } = props;
+  const {
+    variant = 'primaryRounded',
+    colors,
+    label,
+    styleProp,
+    ...rest
+  } = props;
   const style = [styles[variant], styleProp];
 
   return (
     <LinearGradient
-      colors={['#4c669f', '#3b5998', '#192f6a']}
+      colors={colors || ['#4c669f', '#3b5998', '#192f6a']}
       style={styles.LinearGradient}
     >
       <Pressable style={style} {...rest}>

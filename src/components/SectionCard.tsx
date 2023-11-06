@@ -1,16 +1,17 @@
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, DimensionValue } from 'react-native';
 
 import { COLORS } from '../theme/colors';
 
 type Props = {
+  height?: DimensionValue;
   children: React.ReactNode;
 };
 
-export default function SectionCard({ children }: Props) {
+export default function SectionCard({ height = '45%', children }: Props) {
   const tabBarHeight = useBottomTabBarHeight();
   return (
-    <View style={[styles.container, { marginBottom: tabBarHeight }]}>
+    <View style={[styles.container, { marginBottom: tabBarHeight, height }]}>
       {children}
     </View>
   );
@@ -19,7 +20,6 @@ export default function SectionCard({ children }: Props) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '45%',
     position: 'absolute',
     bottom: 0,
     backgroundColor: COLORS.WHITE,

@@ -15,6 +15,10 @@ export default function SettingsScreen() {
     console.log(route);
   };
 
+  /* 
+  <Text>delete account</Text>
+   */
+
   return (
     <SafeAreaView>
       <View style={styles.container}>

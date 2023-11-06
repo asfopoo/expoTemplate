@@ -56,7 +56,7 @@ export default function CountScreen({ navigation }: Props) {
         style={styles.background}
       />
       <View style={styles.contentContainer}>
-        <CircularView>
+        <CircularView size="size30">
           <Text style={styles.whiteText}>Count</Text>
           <Text style={styles.whiteText}>{count}</Text>
         </CircularView>
