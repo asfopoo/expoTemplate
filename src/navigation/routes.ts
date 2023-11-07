@@ -11,6 +11,7 @@ export const PRIVATE_ROUTES = {
   SETTINGS_SCREEN: 'Settings',
   PROFILE_SCREEN: 'Profile',
   HISTORY_SCREEN: 'History',
+  ABOUT_SCREEN: 'About',
 } as const;
 
 export const TAB_ROUTES = {

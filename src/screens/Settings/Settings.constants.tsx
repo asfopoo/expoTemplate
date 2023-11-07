@@ -1,4 +1,5 @@
 import { MaterialIcons } from '@expo/vector-icons';
+import { PRIVATE_ROUTES } from '../../navigation/routes';
 
 type Icon = keyof typeof MaterialIcons.glyphMap;
 
@@ -9,7 +10,7 @@ type Options = {
 };
 
 export const settingsOptions: Options[] = [
-  {
+  /* {
     title: 'Subscription',
     icon: 'subscriptions',
     route: 'Subscription',
@@ -28,7 +29,7 @@ export const settingsOptions: Options[] = [
     title: 'Support',
     icon: 'support',
     route: 'Support',
-  },
+  }, */
   {
     title: 'Scan Settings',
     icon: 'settings',
@@ -38,7 +39,7 @@ export const settingsOptions: Options[] = [
   {
     title: 'About',
     icon: 'info',
-    route: 'About',
+    route: PRIVATE_ROUTES.ABOUT_SCREEN,
   },
   {
     title: 'Sign Out',

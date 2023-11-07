@@ -6,7 +6,6 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, StyleSheet, Text } from 'react-native';
 
-import SettingsScreen from '../../screens/Settings/SettingsScreen';
 import { COLORS } from '../../theme/colors';
 import { TAB_ROUTES } from '../routes';
 // import ChatStack from '../stacks/privateStacks/ChatStack';
@@ -14,6 +13,7 @@ import CountStack from '../stacks/privateStacks/CountStack';
 import HistoryStack from '../stacks/privateStacks/HistoryStack';
 import ProfileStack from '../stacks/privateStacks/ProfileStack';
 import ScannerStack from '../stacks/privateStacks/ScannerStack';
+import SettingsStack from '../stacks/privateStacks/SettingsStack';
 import { TabNavigatorParamList } from '../types';
 
 export function TabNavigator() {
@@ -87,7 +87,7 @@ export function TabNavigator() {
       />
       <Tab.Screen
         name={TAB_ROUTES.SETTINGS_TAB}
-        component={SettingsScreen}
+        component={SettingsStack}
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({ color, size }) => (

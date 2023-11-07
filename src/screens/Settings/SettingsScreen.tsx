@@ -4,7 +4,7 @@ import { settingsOptions } from './Settings.constants';
 import OptionsList from '../../components/OptionsList';
 import { useAuth } from '../../hooks/useAuth';
 
-export default function SettingsScreen() {
+export default function SettingsScreen({ navigation }) {
   const { signOut } = useAuth();
 
   const handlePress = (route: string) => {
@@ -12,7 +12,7 @@ export default function SettingsScreen() {
       signOut();
       return;
     }
-    console.log(route);
+    navigation.navigate(route);
   };
 
   /* 
