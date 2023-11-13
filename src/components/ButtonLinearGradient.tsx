@@ -1,6 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { Pressable, Text, StyleSheet, PressableProps } from 'react-native';
+import { Text, StyleSheet, PressableProps } from 'react-native';
 
+import Pressable from './Pressable';
 import { COLORS } from '../theme/colors';
 
 type ButtonVariants =

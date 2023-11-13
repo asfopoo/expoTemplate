@@ -1,3 +1,4 @@
+import { useMutation } from '@apollo/client';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Formik } from 'formik';
 import { useLayoutEffect } from 'react';
@@ -9,7 +10,8 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import { LOGIN_BUTTONS, INITIAL_VALUES } from './Login.constants';
+import { LOGIN_INPUTS, INITIAL_VALUES } from './Login.constants';
+import { LOGIN } from './graphql/mutations';
 import ButtonLinearGradient from '../../components/ButtonLinearGradient';
 import Input from '../../components/Input';
 import Pressable from '../../components/Pressable';
@@ -24,11 +26,27 @@ type Props = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 export default function LoginScreen({ navigation }: Props) {
   const { signIn } = useAuth();
 
+  const [loginUser, { data: loginData, loading, error }] = useMutation(LOGIN);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   }, [navigation]);
+
+  const login = async (values) => {
+    const { data } = await loginUser({
+      variables: {
+        email: values.email,
+        password: values.password,
+      },
+    });
+    if (data) {
+      signIn(data.login.authToken, data.login.refreshToken);
+    } else {
+      console.log(error);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -39,7 +57,7 @@ export default function LoginScreen({ navigation }: Props) {
         <Formik
           initialValues={INITIAL_VALUES}
           onSubmit={(values) => {
-            signIn();
+            login(values);
           }}
           validationSchema={loginSchema}
         >
@@ -53,18 +71,18 @@ export default function LoginScreen({ navigation }: Props) {
           }) => (
             <>
               <View style={styles.inputContainer}>
-                {LOGIN_BUTTONS.map((button) => {
+                {LOGIN_INPUTS.map((input) => {
                   const buttonIdentifier =
-                    button.identifier as keyof typeof values;
+                    input.identifier as keyof typeof values;
                   return (
                     <Input
-                      key={button.label}
+                      key={input.label}
                       onChangeText={handleChange(buttonIdentifier)}
                       value={values[buttonIdentifier]}
                       error={errors[buttonIdentifier]}
                       onBlur={handleBlur(buttonIdentifier)}
                       touched={touched[buttonIdentifier]}
-                      {...button}
+                      {...input}
                     />
                   );
                 })}
@@ -78,7 +96,7 @@ export default function LoginScreen({ navigation }: Props) {
               <View style={styles.registrationContainer}>
                 <View style={styles.loginButtonContainer}>
                   <ButtonLinearGradient
-                    label="Login"
+                    label={loading ? 'Loading' : 'Login'}
                     variant="primaryRounded"
                     onPress={() => handleSubmit()}
                   />

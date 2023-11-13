@@ -1,3 +1,4 @@
+import { useMutation } from '@apollo/client';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
 import { useLayoutEffect } from 'react';
@@ -9,7 +10,8 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { REGISTRATION_BUTTONS, INITIAL_VALUES } from './Registration.constants';
+import { REGISTRATION_INPUTS, INITIAL_VALUES } from './Registration.constants';
+import { REGISTER } from './graphql/mutations';
 import ButtonLinearGradient from '../../components/ButtonLinearGradient';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
@@ -23,11 +25,31 @@ import { registrationSchema } from '../../utils/validationSchemas/registrationVa
 export default function RegistrationScreen() {
   const navigation = useNavigation<RegistrationScreenNavigationProp>();
 
+  const [registerUser, { data: registerData, loading, error }] =
+    useMutation(REGISTER);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   }, [navigation]);
+
+  const register = async (values) => {
+    const { data } = await registerUser({
+      variables: {
+        email: values.email.trim(),
+        password: values.password.trim(),
+        firstname: values.firstname.trim(),
+        lastname: values.lastname.trim(),
+      },
+    });
+    if (data.register.id) {
+      navigation.navigate(PUBLIC_ROUTES.ORGANIZATION_REGISTRATION_SCREEN);
+    } else {
+      // TODO error handling
+      console.log(error);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -43,11 +65,9 @@ export default function RegistrationScreen() {
           <Formik
             initialValues={INITIAL_VALUES}
             onSubmit={(values) => {
-              navigation.navigate(
-                PUBLIC_ROUTES.ORGANIZATION_REGISTRATION_SCREEN,
-              );
+              register(values);
             }}
-            // validationSchema={registrationSchema}
+            validationSchema={registrationSchema}
           >
             {({
               handleChange,
@@ -59,18 +79,18 @@ export default function RegistrationScreen() {
             }) => (
               <>
                 <View style={styles.contentContainer}>
-                  {REGISTRATION_BUTTONS.map((button) => {
+                  {REGISTRATION_INPUTS.map((input) => {
                     const buttonIdentifier =
-                      button.identifier as keyof typeof values;
+                      input.identifier as keyof typeof values;
                     return (
                       <Input
-                        key={button.label}
+                        key={input.label}
                         onChangeText={handleChange(buttonIdentifier)}
                         value={values[buttonIdentifier]}
                         error={errors[buttonIdentifier]}
                         onBlur={handleBlur(buttonIdentifier)}
                         touched={touched[buttonIdentifier]}
-                        {...button}
+                        {...input}
                       />
                     );
                   })}

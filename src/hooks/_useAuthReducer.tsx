@@ -8,18 +8,19 @@ function authReducer(state: AuthState, action: AuthAction) {
     case 'RESTORE_TOKEN':
       return {
         ...state,
-        userToken: action.token,
+        userToken: action.authToken,
         isLoading: false,
       };
     case 'SIGN_IN':
-      SecureStore.setItemAsync('userToken', action.token); // await??
+      SecureStore.setItemAsync('authToken', action.authToken);
+      SecureStore.setItemAsync('refreshToken', action.refreshToken);
       return {
         ...state,
         isSignout: false,
-        userToken: action.token,
+        userToken: action.authToken,
       };
     case 'SIGN_OUT':
-      SecureStore.deleteItemAsync('userToken'); // await??
+      SecureStore.deleteItemAsync('authToken');
       return {
         ...state,
         isSignout: true,

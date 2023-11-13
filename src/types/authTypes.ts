@@ -5,13 +5,13 @@ export type AuthState = {
 };
 
 export type AuthAction =
-  | { type: 'RESTORE_TOKEN'; token: string | null }
-  | { type: 'SIGN_IN'; token: string }
+  | { type: 'RESTORE_TOKEN'; authToken: string | null }
+  | { type: 'SIGN_IN'; authToken: string; refreshToken: string }
   | { type: 'SIGN_OUT' };
 
 export type AuthContextType = {
   dispatchAuth: (action: AuthAction) => void;
   authState: AuthState;
-  signIn: () => void;
+  signIn: (authToken: string, refreshToken: string) => void;
   signOut: () => void;
 };

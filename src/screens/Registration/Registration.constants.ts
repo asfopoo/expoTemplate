@@ -1,11 +1,13 @@
-export const REGISTRATION_BUTTONS = [
+type AutoCapitalize = 'none' | 'sentences' | 'words' | 'characters';
+
+export const REGISTRATION_INPUTS = [
   {
-    identifier: 'firstName',
+    identifier: 'firstname',
     label: 'First Name',
     placeholder: 'First Name',
   },
   {
-    identifier: 'lastName',
+    identifier: 'lastname',
     label: 'Last Name',
     placeholder: 'Last Name',
   },
@@ -13,6 +15,7 @@ export const REGISTRATION_BUTTONS = [
     identifier: 'email',
     label: 'Email',
     placeholder: 'Email',
+    autoCapitalize: 'none' as AutoCapitalize,
   },
   {
     identifier: 'password',
@@ -27,8 +30,8 @@ export const REGISTRATION_BUTTONS = [
 ];
 
 export const INITIAL_VALUES = {
-  firstName: '',
-  lastName: '',
+  firstname: '',
+  lastname: '',
   email: '',
   password: '',
   confirmPassword: '',

@@ -10,6 +10,7 @@ import {
 import { COLORS } from '../theme/colors';
 
 type InputProps = TextInputProps & {
+  identifier?: string;
   label?: string;
   error?: string;
   touched?: boolean;
