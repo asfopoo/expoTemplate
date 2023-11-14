@@ -1,3 +1,4 @@
+import { useLayoutEffect } from 'react';
 import { StyleSheet, SafeAreaView, View } from 'react-native';
 
 import { settingsOptions } from './Settings.constants';
@@ -6,6 +7,12 @@ import { useAuth } from '../../hooks/useAuth';
 
 export default function SettingsScreen({ navigation }) {
   const { signOut } = useAuth();
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  });
 
   const handlePress = (route: string) => {
     if (route === 'SignOut') {

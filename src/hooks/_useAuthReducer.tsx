@@ -12,8 +12,6 @@ function authReducer(state: AuthState, action: AuthAction) {
         isLoading: false,
       };
     case 'SIGN_IN':
-      SecureStore.setItemAsync('authToken', action.authToken);
-      SecureStore.setItemAsync('refreshToken', action.refreshToken);
       return {
         ...state,
         isSignout: false,

@@ -14,14 +14,15 @@ export default function RootNavigator() {
       let userToken: string | null = null;
 
       try {
-        const storedToken = await SecureStore.getItemAsync('userToken'); // TODO: convert to hook
+        const storedToken = await SecureStore.getItemAsync('authToken');
         userToken = storedToken ? storedToken : null;
+        // TODO: if token is expired, refresh token
       } catch (e) {
         console.warn(e);
       }
 
       // This will switch to the App screen or Auth screen
-      dispatchAuth({ type: 'RESTORE_TOKEN', token: userToken });
+      dispatchAuth({ type: 'RESTORE_TOKEN', authToken: userToken });
     })();
   }, []);
 

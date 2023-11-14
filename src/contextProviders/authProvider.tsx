@@ -1,3 +1,4 @@
+import * as SecureStore from 'expo-secure-store';
 import { createContext } from 'react';
 
 import { _useAuthReducer } from '../hooks/_useAuthReducer';
@@ -13,10 +14,8 @@ export const AuthProvider = ({ children }: Props) => {
   const [authState, dispatchAuth] = _useAuthReducer();
 
   const signIn = async (authToken: string, refreshToken: string) => {
-    // In a production app, we need to send some data (usually username, password) to server and get a token
-    // We will also need to handle errors if sign in failed
-    // After getting token, we need to persist the token using `SecureStore`
-    // In the example, we'll use a dummy token
+    SecureStore.setItemAsync('authToken', authToken);
+    SecureStore.setItemAsync('refreshToken', refreshToken);
 
     dispatchAuth({ type: 'SIGN_IN', authToken, refreshToken });
   };
