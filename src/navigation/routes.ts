@@ -12,6 +12,7 @@ export const PRIVATE_ROUTES = {
   PROFILE_SCREEN: 'Profile',
   HISTORY_SCREEN: 'History',
   ABOUT_SCREEN: 'About',
+  SCANNER_SETTINGS_SCREEN: 'Scanner Settings',
 } as const;
 
 export const TAB_ROUTES = {

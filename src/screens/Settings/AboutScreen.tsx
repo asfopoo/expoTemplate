@@ -3,8 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useLayoutEffect } from 'react';
 import { Text, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 
-import * as app from '../../app.json';
-import Header from '../components/Header';
+import * as app from '../../../app.json';
+import Header from '../../components/Header';
 
 export default function AboutScreen() {
   const navigation = useNavigation();

@@ -1,4 +1,5 @@
 import { MaterialIcons } from '@expo/vector-icons';
+
 import { PRIVATE_ROUTES } from '../../navigation/routes';
 
 type Icon = keyof typeof MaterialIcons.glyphMap;
@@ -33,7 +34,7 @@ export const settingsOptions: Options[] = [
   {
     title: 'Scan Settings',
     icon: 'settings',
-    route: 'ScanSettings',
+    route: PRIVATE_ROUTES.SCANNER_SETTINGS_SCREEN,
     // time reset for history, does scanner increment the count
   },
   {

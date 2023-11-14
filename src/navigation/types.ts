@@ -107,6 +107,7 @@ export type ScannerTabParamList = {
 export type SettingsTabParamList = {
   [PRIVATE_ROUTES.SETTINGS_SCREEN]: undefined;
   [PRIVATE_ROUTES.ABOUT_SCREEN]: undefined;
+  [PRIVATE_ROUTES.SCANNER_SETTINGS_SCREEN]: undefined;
 };
 
 export type ProfileTabParamList = {
