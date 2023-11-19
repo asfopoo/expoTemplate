@@ -2,7 +2,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, Alert } from 'react-native';
 
 import Button from '../../components/Button';
@@ -17,8 +17,8 @@ import { TEXT_SIZES } from '../../theme/layout';
 type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
 
 export default function CountScreen({ navigation }: Props) {
-  const { getData, storeData } = useAsyncStorage('count', 0);
-  const count = parseInt(getData, 10);
+  const { getStoredData, storeData } = useAsyncStorage();
+  const [count, setCount] = useState(0);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -26,26 +26,42 @@ export default function CountScreen({ navigation }: Props) {
     });
   }, [navigation]);
 
+  useEffect(() => {
+    (async () => {
+      const storedCount = await getStoredData('count');
+      if (storedCount) {
+        setCount(parseInt(storedCount, 10));
+      }
+    })();
+  }, []);
+
   const incrementCount = () => {
     if (count === 9999) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    storeData((count + 1).toString());
+    setCount(count + 1);
+    storeData('count', count + 1);
   };
 
   const decrementCount = () => {
     if (count === 0) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    storeData((count - 1).toString());
+    setCount(count - 1);
+    storeData('count', count - 1);
   };
 
   const resetCount = () => {
+    setCount(0);
+    storeData('count', 0);
+  };
+
+  const handleResetPressed = () => {
     if (count === 0) return;
     Alert.alert('Warning', 'Are you sure you want to Reset the count?', [
       {
         text: 'Cancel',
         style: 'cancel',
       },
-      { text: 'Reset', onPress: () => storeData('0') },
+      { text: 'Reset', onPress: () => resetCount() },
     ]);
   };
 
@@ -75,7 +91,7 @@ export default function CountScreen({ navigation }: Props) {
           </View>
         </View>
         <Button
-          onPress={resetCount}
+          onPress={handleResetPressed}
           label="Reset"
           variant="secondaryRoundedShadow"
         />
