@@ -1,4 +1,5 @@
 export function convertStringToColor(str: string) {
+  if (!str) return '#ffffff';
   // convert the string to hex color code
   let hash = 0;
   for (let i = 0; i < str.length; i++) {

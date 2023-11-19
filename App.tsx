@@ -9,6 +9,7 @@ import { onError } from '@apollo/client/link/error';
 import { NavigationContainer } from '@react-navigation/native';
 
 import { AuthProvider } from './src/contextProviders/authProvider';
+import { SettingsProvider } from './src/contextProviders/settingsProvider';
 import { UserProvider } from './src/contextProviders/userProvider';
 import RootNavigator from './src/navigation/navigators/RootNavigator';
 
@@ -37,7 +38,9 @@ export default function App() {
       <NavigationContainer>
         <AuthProvider>
           <UserProvider>
-            <RootNavigator />
+            <SettingsProvider>
+              <RootNavigator />
+            </SettingsProvider>
           </UserProvider>
         </AuthProvider>
       </NavigationContainer>
