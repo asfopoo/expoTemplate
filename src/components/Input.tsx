@@ -17,9 +17,10 @@ type InputProps = TextInputProps & {
 };
 
 export default function Input(props: InputProps) {
-  const { label, error, touched, ...rest } = props; // TODO label no longer used, remove it
+  const { label, error, touched, ...rest } = props;
   return (
     <View>
+      {label && <Text>{label}</Text>}
       <TextInput
         style={[
           styles.inputStyle,

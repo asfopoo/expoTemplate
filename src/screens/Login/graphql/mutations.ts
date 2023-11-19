@@ -5,6 +5,9 @@ export const LOGIN = gql`
     login(email: $email, password: $password) {
       user {
         id
+        first_name
+        last_name
+        email
       }
       authToken
       refreshToken

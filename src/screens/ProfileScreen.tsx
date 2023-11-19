@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useEffect, useLayoutEffect, useReducer } from 'react';
+import { useLayoutEffect } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 import CircularView from '../components/CircularView';
@@ -9,13 +9,13 @@ import SectionCard from '../components/SectionCard';
 import { useUserDetails } from '../hooks/useUserDetails';
 import { RootStackParamList } from '../navigation/types';
 import { COLORS } from '../theme/colors';
+import { convertStringToColor } from '../utils/helpers';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Profile Tab'>;
 
 export default function ProfileScreen({ navigation }: Props) {
   const { user } = useUserDetails();
-
-  console.log(user);
+  const backgroundColor = convertStringToColor(user?.first_name);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -30,8 +30,10 @@ export default function ProfileScreen({ navigation }: Props) {
         style={styles.background}
       />
       <SectionCard height="70%">
-        <Input editable={false}>name</Input>
-        <Input editable={false}>email</Input>
+        <Input
+          editable={false}
+        >{`${user?.first_name} ${user?.last_name}`}</Input>
+        <Input editable={false}>{user?.email}</Input>
         <Input editable={false}>No Organization</Input>
 
         {/* <Text>Transfer Org ownership</Text>
@@ -43,8 +45,11 @@ export default function ProfileScreen({ navigation }: Props) {
         {/* TODO: <Text>Reset password</Text> */}
       </SectionCard>
       <View style={styles.profileImageContainer}>
-        <CircularView size="size20" backgroundColor={COLORS.MEDIUM_GRAY}>
-          <Text>Name</Text>
+        <CircularView size="size20" backgroundColor={backgroundColor}>
+          <Text style={styles.initialText}>
+            {user?.first_name[0]}
+            {user?.last_name[0]}
+          </Text>
         </CircularView>
       </View>
     </View>
@@ -68,13 +73,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  initialText: {
+    fontSize: 30,
+    color: COLORS.WHITE,
+  },
 });
-
-const userReducer = (state: any, action: any) => {
-  switch (action.type) {
-    case 'SET_USER':
-      return { ...state, ...action.payload };
-    default:
-      return state;
-  }
-};
