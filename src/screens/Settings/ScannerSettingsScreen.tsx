@@ -4,6 +4,7 @@ import { Text, StyleSheet, SafeAreaView, View, Switch } from 'react-native';
 
 import Header from '../../components/Header';
 import { useSettings } from '../../hooks/useSettings';
+import { COLORS } from '../../theme/colors';
 
 const ActionTypes = {
   TOGGLE_INCREMENT_COUNTER_ON_SCAN: 'incrementCounterOnScan',
@@ -35,9 +36,8 @@ export default function ScannerSettingsScreen() {
       <View style={styles.rowContainer}>
         <Text style={styles.text16}>Increment Counter on Scan</Text>
         <Switch
-          trackColor={{ false: '#767577', true: '#81b0ff' }}
-          thumbColor={settings?.incrementCounterOnScan ? '#f5dd4b' : '#f4f3f4'}
-          ios_backgroundColor="#3e3e3e"
+          trackColor={{ true: COLORS.BRIGHT_BLUE }}
+          thumbColor={COLORS.WHITE}
           onValueChange={() =>
             handleValueChange(ActionTypes.TOGGLE_INCREMENT_COUNTER_ON_SCAN)
           }
