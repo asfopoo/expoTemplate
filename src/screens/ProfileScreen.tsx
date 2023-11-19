@@ -1,17 +1,22 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useReducer } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 import CircularView from '../components/CircularView';
 import Input from '../components/Input';
 import SectionCard from '../components/SectionCard';
+import { useUserDetails } from '../hooks/useUserDetails';
 import { RootStackParamList } from '../navigation/types';
 import { COLORS } from '../theme/colors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Profile Tab'>;
 
 export default function ProfileScreen({ navigation }: Props) {
+  const { user } = useUserDetails();
+
+  console.log(user);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -64,3 +69,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+const userReducer = (state: any, action: any) => {
+  switch (action.type) {
+    case 'SET_USER':
+      return { ...state, ...action.payload };
+    default:
+      return state;
+  }
+};

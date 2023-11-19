@@ -1,34 +1,47 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useState, useEffect } from 'react';
 
-export default function useAsyncStorage(key: string, initialValue: any) {
-  const initialValueString = initialValue.toString();
-  const [getData, setData] = useState(initialValueString);
-
-  const getStoredData = async () => {
+export default function useAsyncStorage() {
+  const getStoredData = async (key: string) => {
     try {
-      const value = await AsyncStorage.getItem(key);
-      if (value !== null) {
-        setData(value);
+      const storedData = await AsyncStorage.getItem(key);
+      if (storedData) {
+        if (isJSON(storedData)) {
+          return JSON.parse(storedData);
+        } else {
+          return JSON.parse(storedData);
+        }
       }
     } catch (e) {
       console.log(e);
     }
+    return null;
   };
 
-  const storeData = async (value: any) => {
+  const storeData = async (key: string, value: any) => {
     try {
-      const valueString = value.toString();
+      const valueString = JSON.stringify(value);
       await AsyncStorage.setItem(key, valueString);
-      setData(valueString);
     } catch (e) {
       console.log(e);
     }
   };
 
-  useEffect(() => {
-    getStoredData();
-  }, []);
+  const clearData = async (key: string) => {
+    try {
+      await AsyncStorage.removeItem(key);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  return { getData, storeData };
+  return { getStoredData, storeData, clearData };
+}
+
+function isJSON(str: string) {
+  try {
+    JSON.parse(str);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
