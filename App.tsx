@@ -1,5 +1,6 @@
 import {
   ApolloClient,
+  ApolloLink,
   InMemoryCache,
   ApolloProvider,
   from,
@@ -8,12 +9,17 @@ import {
 import { onError } from '@apollo/client/link/error';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { AuthProvider } from './src/contextProviders/authProvider';
-import { SettingsProvider } from './src/contextProviders/settingsProvider';
-import { UserProvider } from './src/contextProviders/userProvider';
+import { AuthProvider } from './src/context/authProvider';
+import { SettingsProvider } from './src/context/settingsProvider';
+import { UserProvider } from './src/context/userProvider';
 import RootNavigator from './src/navigation/navigators/RootNavigator';
 
-// TODO: auth link
+const authLink = new ApolloLink((operation, forward) => {
+  // get the authentication token from local storage if it exists
+  // const token = localStorage.getItem('token');
+  // return the headers to the context so httpLink can read them
+  return forward(operation);
+});
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
@@ -29,7 +35,7 @@ const httpLink = new HttpLink({ uri: 'http://192.168.64.1:4000/graphql' });
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: from([errorLink, httpLink]),
+  link: from([authLink, errorLink, httpLink]),
 });
 
 export default function App() {

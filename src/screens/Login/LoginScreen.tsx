@@ -36,7 +36,7 @@ export default function LoginScreen({ navigation }: Props) {
     });
   }, [navigation]);
 
-  const login = async (values) => {
+  const login = async (values: any) => {
     const { data } = await loginUser({
       variables: {
         email: values.email,

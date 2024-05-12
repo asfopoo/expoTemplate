@@ -8,7 +8,7 @@ export default function useAsyncStorage() {
         if (isJSON(storedData)) {
           return JSON.parse(storedData);
         } else {
-          return JSON.parse(storedData);
+          return storedData;
         }
       }
     } catch (e) {

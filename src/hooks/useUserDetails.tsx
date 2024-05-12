@@ -1,7 +1,7 @@
 import { useReducer, useEffect, useContext } from 'react';
 
 import useAsyncStorage from './useAsyncStorage';
-import { UserContext } from '../contextProviders/userProvider';
+import { UserContext } from '../context/userProvider';
 import { User } from '../types/userTypes';
 
 // Define the actions

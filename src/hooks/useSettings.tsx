@@ -1,7 +1,7 @@
 import { useReducer, useEffect, useContext } from 'react';
 
 import useAsyncStorage from './useAsyncStorage';
-import { SettingsContext } from '../contextProviders/settingsProvider';
+import { SettingsContext } from '../context/settingsProvider';
 import { Settings } from '../types/settingsTypes';
 
 // Define the actions
