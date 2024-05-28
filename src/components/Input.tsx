@@ -18,13 +18,15 @@ type InputProps = TextInputProps & {
 
 export default function Input(props: InputProps) {
   const { label, error, touched, ...rest } = props;
+  const { width } = useWindowDimensions();
+
   return (
     <View>
       {label && <Text>{label}</Text>}
       <TextInput
         style={[
           styles.inputStyle,
-          { width: useWindowDimensions().width - 60 },
+          { width: width - 60 },
           { borderColor: error && touched ? 'red' : 'gray' },
         ]}
         {...rest}

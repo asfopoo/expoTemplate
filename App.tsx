@@ -11,7 +11,6 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { AuthProvider } from './src/context/authProvider';
 import { SettingsProvider } from './src/context/settingsProvider';
-import { UserProvider } from './src/context/userProvider';
 import RootNavigator from './src/navigation/navigators/RootNavigator';
 
 const authLink = new ApolloLink((operation, forward) => {
@@ -43,11 +42,9 @@ export default function App() {
     <ApolloProvider client={client}>
       <NavigationContainer>
         <AuthProvider>
-          <UserProvider>
-            <SettingsProvider>
-              <RootNavigator />
-            </SettingsProvider>
-          </UserProvider>
+          <SettingsProvider>
+            <RootNavigator />
+          </SettingsProvider>
         </AuthProvider>
       </NavigationContainer>
     </ApolloProvider>

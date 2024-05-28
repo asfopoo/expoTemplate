@@ -10,6 +10,7 @@ type Props = {
 
 export default function SectionCard({ height = '45%', children }: Props) {
   const tabBarHeight = useBottomTabBarHeight();
+
   return (
     <View style={[styles.container, { marginBottom: tabBarHeight, height }]}>
       {children}

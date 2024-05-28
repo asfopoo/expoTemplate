@@ -6,16 +6,16 @@ import { Text, View, StyleSheet } from 'react-native';
 import CircularView from '../components/CircularView';
 import Input from '../components/Input';
 import SectionCard from '../components/SectionCard';
-import { useUserDetails } from '../hooks/useUserDetails';
 import { RootStackParamList } from '../navigation/types';
 import { COLORS } from '../theme/colors';
 import { convertStringToColor } from '../utils/helpers';
+import { useSelectUser } from '../zustand/user/selectors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Profile Tab'>;
 
 export default function ProfileScreen({ navigation }: Props) {
-  const { user } = useUserDetails();
-  const backgroundColor = convertStringToColor(user?.first_name);
+  const user = useSelectUser();
+  const backgroundColor = convertStringToColor(user?.first_name || 'Jeff');
 
   useLayoutEffect(() => {
     navigation.setOptions({

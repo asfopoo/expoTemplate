@@ -17,17 +17,16 @@ import Input from '../../components/Input';
 import Pressable from '../../components/Pressable';
 import ScannerLogo from '../../components/ScannerLogo';
 import { useAuth } from '../../hooks/useAuth';
-import { useUserDetails } from '../../hooks/useUserDetails';
 import { PUBLIC_ROUTES } from '../../navigation/routes';
 import { AuthStackParamList } from '../../navigation/types';
 import { loginSchema } from '../../utils/validationSchemas/loginValidation';
+import { useSetUser } from '../../zustand/user/actions';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 
 export default function LoginScreen({ navigation }: Props) {
   const { signIn } = useAuth();
-  const { updateUser } = useUserDetails();
-
+  const setUser = useSetUser();
   const [loginUser, { loading, error }] = useMutation(LOGIN);
 
   useLayoutEffect(() => {
@@ -45,7 +44,7 @@ export default function LoginScreen({ navigation }: Props) {
     });
     if (data) {
       signIn(data.login.authToken, data.login.refreshToken);
-      updateUser(data.login.user);
+      setUser(data.login.user);
     } else {
       console.log(error);
     }
