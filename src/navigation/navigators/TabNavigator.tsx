@@ -16,7 +16,7 @@ import ScannerStack from '../stacks/privateStacks/ScannerStack';
 import SettingsStack from '../stacks/privateStacks/SettingsStack';
 import { TabNavigatorParamList } from '../types';
 
-export function TabNavigator() {
+export default function TabNavigator() {
   const Tab = createBottomTabNavigator<TabNavigatorParamList>();
 
   return (

@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 
-import { REGISTRATION_INPUTS, INITIAL_VALUES } from './Registration.constants';
+import { REGISTRATION_INPUTS, INITIAL_VALUES } from './constants';
 import { REGISTER } from './graphql/mutations';
 import ButtonLinearGradient from '../../components/ButtonLinearGradient';
 import Header from '../../components/Header';

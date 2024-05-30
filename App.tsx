@@ -12,7 +12,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { AuthProvider } from './src/context/authProvider';
 import RootNavigator from './src/navigation/navigators/RootNavigator';
 
-const authLink = new ApolloLink((operation, forward) => {
+/* const authLink = new ApolloLink((operation, forward) => {
   // get the authentication token from local storage if it exists
   // const token = localStorage.getItem('token');
   // return the headers to the context so httpLink can read them
@@ -45,5 +45,17 @@ export default function App() {
         </AuthProvider>
       </NavigationContainer>
     </ApolloProvider>
+  );
+} */
+
+// apollo commented out for now for deployment without a server
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <AuthProvider>
+        <RootNavigator />
+      </AuthProvider>
+    </NavigationContainer>
   );
 }
