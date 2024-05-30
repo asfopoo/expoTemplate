@@ -17,7 +17,7 @@ import { TEXT_SIZES } from '../../theme/layout';
 type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
 
 export default function CountScreen({ navigation }: Props) {
-  const { getStoredData, storeData } = useAsyncStorage();
+  const { getStoredData, storeData } = useAsyncStorage(); // TODO: convert to zustand
   const [count, setCount] = useState(0);
 
   useLayoutEffect(() => {
