@@ -2,7 +2,7 @@ export type Settings = {
   incrementCounterOnScan: boolean;
 };
 
-export type SettingsState = {
+export type SettingsSlice = {
   settings: Settings;
 };
 

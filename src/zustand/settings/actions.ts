@@ -1,5 +1,3 @@
-import { useCallback } from 'react';
-
 import { Settings } from './createSlice';
 import { useBoundStore } from '../store';
 

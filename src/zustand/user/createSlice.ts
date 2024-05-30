@@ -7,7 +7,7 @@ export type User = {
   role: string;
 };
 
-export type UserState = {
+export type UserSlice = {
   user: User | undefined;
 };
 

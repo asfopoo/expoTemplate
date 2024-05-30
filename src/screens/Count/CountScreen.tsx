@@ -2,23 +2,24 @@ import { AntDesign } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, Alert } from 'react-native';
 
 import Button from '../../components/Button';
 import CircularView from '../../components/CircularView';
 import SectionCard from '../../components/SectionCard';
 import ShadowCard from '../../components/ShadowCard';
-import useAsyncStorage from '../../hooks/useAsyncStorage';
 import { RootStackParamList } from '../../navigation/types';
 import { COLORS } from '../../theme/colors';
 import { TEXT_SIZES } from '../../theme/layout';
+import { setEntrantCount } from '../../zustand/entrantCount/actions';
+import { selectEntrantCount } from '../../zustand/entrantCount/selectors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
 
 export default function CountScreen({ navigation }: Props) {
-  const { getStoredData, storeData } = useAsyncStorage(); // TODO: convert to zustand
-  const [count, setCount] = useState(0);
+  const entrantCount = selectEntrantCount();
+  const [count, setCount] = useState(entrantCount);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -26,32 +27,23 @@ export default function CountScreen({ navigation }: Props) {
     });
   }, [navigation]);
 
-  useEffect(() => {
-    (async () => {
-      const storedCount = await getStoredData('count');
-      if (storedCount) {
-        setCount(parseInt(storedCount, 10));
-      }
-    })();
-  }, []);
-
   const incrementCount = () => {
     if (count === 9999) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     setCount(count + 1);
-    storeData('count', count + 1);
+    setEntrantCount(count + 1);
   };
 
   const decrementCount = () => {
     if (count === 0) return;
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
     setCount(count - 1);
-    storeData('count', count - 1);
+    setEntrantCount(count - 1);
   };
 
   const resetCount = () => {
     setCount(0);
-    storeData('count', 0);
+    setEntrantCount(0);
   };
 
   const handleResetPressed = () => {
