@@ -1,5 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { Text, StyleSheet, PressableProps } from 'react-native';
+import { Text, StyleSheet, PressableProps, ViewStyle } from 'react-native';
 
 import Pressable from './Pressable';
 import { COLORS } from '../theme/colors';
@@ -11,7 +11,7 @@ type ButtonVariants =
 
 type Props = PressableProps & {
   variant?: ButtonVariants;
-  styleProp?: any;
+  styleProp?: ViewStyle;
   colors?: string[];
   label: string;
 };

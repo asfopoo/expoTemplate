@@ -22,6 +22,11 @@ import { AuthStackParamList } from '../../navigation/types';
 import { loginSchema } from '../../utils/validationSchemas/loginValidation';
 import { setUser } from '../../zustand/user/actions';
 
+interface FormValues {
+  email: string;
+  password: string;
+}
+
 type Props = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 
 export default function LoginScreen({ navigation }: Props) {
@@ -34,7 +39,7 @@ export default function LoginScreen({ navigation }: Props) {
     });
   }, [navigation]);
 
-  const login = async (values: any) => {
+  const login = async (values: FormValues) => {
     const { data } = await loginUser({
       variables: {
         email: values.email,

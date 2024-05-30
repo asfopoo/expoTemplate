@@ -1,4 +1,10 @@
-import { Pressable, Text, StyleSheet, PressableProps } from 'react-native';
+import {
+  Pressable,
+  Text,
+  StyleSheet,
+  PressableProps,
+  ViewStyle,
+} from 'react-native';
 
 import { COLORS } from '../theme/colors';
 
@@ -9,7 +15,7 @@ type ButtonVariants =
 
 type Props = PressableProps & {
   variant?: ButtonVariants;
-  styleProp?: any;
+  styleProp?: ViewStyle;
   label: string;
 };
 
