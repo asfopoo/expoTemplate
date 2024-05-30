@@ -10,7 +10,6 @@ import { onError } from '@apollo/client/link/error';
 import { NavigationContainer } from '@react-navigation/native';
 
 import { AuthProvider } from './src/context/authProvider';
-import { SettingsProvider } from './src/context/settingsProvider';
 import RootNavigator from './src/navigation/navigators/RootNavigator';
 
 const authLink = new ApolloLink((operation, forward) => {
@@ -42,9 +41,7 @@ export default function App() {
     <ApolloProvider client={client}>
       <NavigationContainer>
         <AuthProvider>
-          <SettingsProvider>
-            <RootNavigator />
-          </SettingsProvider>
+          <RootNavigator />
         </AuthProvider>
       </NavigationContainer>
     </ApolloProvider>

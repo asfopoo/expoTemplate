@@ -1,5 +1,3 @@
-import { User } from './userTypes';
-
 export type AuthState = {
   isLoading: boolean;
   isSignout: boolean;
