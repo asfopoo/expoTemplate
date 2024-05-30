@@ -4,8 +4,8 @@ import { Text, StyleSheet, SafeAreaView, View, Switch } from 'react-native';
 
 import Header from '../../components/Header';
 import { COLORS } from '../../theme/colors';
-import { useSetIncrementCounterOnScanSetting } from '../../zustand/settings/actions';
-import { useSelectSettings } from '../../zustand/settings/selectors';
+import { setIncrementCounterOnScan } from '../../zustand/settings/actions';
+import { selectSettings } from '../../zustand/settings/selectors';
 
 const ActionTypes = {
   TOGGLE_INCREMENT_COUNTER_ON_SCAN: 'incrementCounterOnScan',
@@ -13,8 +13,7 @@ const ActionTypes = {
 
 export default function ScannerSettingsScreen() {
   const navigation = useNavigation();
-  const settings = useSelectSettings();
-  const setIncrementOnScan = useSetIncrementCounterOnScanSetting();
+  const settings = selectSettings();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -27,7 +26,7 @@ export default function ScannerSettingsScreen() {
   ) => {
     switch (actionType) {
       case ActionTypes.TOGGLE_INCREMENT_COUNTER_ON_SCAN:
-        setIncrementOnScan(!settings.incrementCounterOnScan);
+        setIncrementCounterOnScan(!settings.incrementCounterOnScan);
         break;
       default:
         break;

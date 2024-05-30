@@ -9,12 +9,12 @@ import SectionCard from '../components/SectionCard';
 import { RootStackParamList } from '../navigation/types';
 import { COLORS } from '../theme/colors';
 import { convertStringToColor } from '../utils/helpers';
-import { useSelectUser } from '../zustand/user/selectors';
+import { selectUser } from '../zustand/user/selectors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Profile Tab'>;
 
 export default function ProfileScreen({ navigation }: Props) {
-  const user = useSelectUser();
+  const user = selectUser();
   const backgroundColor = convertStringToColor(user?.first_name || 'Jeff');
 
   useLayoutEffect(() => {

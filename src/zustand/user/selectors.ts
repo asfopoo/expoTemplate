@@ -1,5 +1,5 @@
 import { useBoundStore } from '../store';
 
-export function useSelectUser() {
-  return useBoundStore((state) => state.user);
+export function selectUser() {
+  return useBoundStore.getState().user;
 }

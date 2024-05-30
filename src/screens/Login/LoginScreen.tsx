@@ -10,7 +10,7 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import { LOGIN_INPUTS, INITIAL_VALUES } from './Login.constants';
+import { LOGIN_INPUTS, INITIAL_VALUES } from './constants';
 import { LOGIN } from './graphql/mutations';
 import ButtonLinearGradient from '../../components/ButtonLinearGradient';
 import Input from '../../components/Input';
@@ -20,13 +20,12 @@ import { useAuth } from '../../hooks/useAuth';
 import { PUBLIC_ROUTES } from '../../navigation/routes';
 import { AuthStackParamList } from '../../navigation/types';
 import { loginSchema } from '../../utils/validationSchemas/loginValidation';
-import { useSetUser } from '../../zustand/user/actions';
+import { setUser } from '../../zustand/user/actions';
 
 type Props = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 
 export default function LoginScreen({ navigation }: Props) {
   const { signIn } = useAuth();
-  const setUser = useSetUser();
   const [loginUser, { loading, error }] = useMutation(LOGIN);
 
   useLayoutEffect(() => {
