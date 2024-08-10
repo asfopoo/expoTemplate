@@ -98,7 +98,7 @@ export default function RegistrationScreen() {
                 <View style={styles.buttonContainer}>
                   <ButtonLinearGradient
                     label="Submit"
-                    variant="primaryRounded"
+                    type="primaryRounded"
                     onPress={() => handleSubmit()}
                   />
                 </View>

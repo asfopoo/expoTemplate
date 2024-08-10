@@ -3,7 +3,7 @@ import { useLayoutEffect } from 'react';
 import { Image, SafeAreaView, StyleSheet, View, Text } from 'react-native';
 
 import { RootStackParamList } from '../navigation/types';
-import { TEXT_SIZES } from '../theme/layout';
+import { TEXT_SIZES } from '../theme/Theme';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'History Tab'>;
 

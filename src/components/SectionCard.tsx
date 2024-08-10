@@ -1,7 +1,8 @@
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { View, StyleSheet, DimensionValue } from 'react-native';
 
-import { COLORS } from '../theme/colors';
+import { useThemeColors } from '@/hooks/useThemeColors';
+import { Theme } from '@/theme/Colors';
 
 type Props = {
   height?: DimensionValue;
@@ -9,6 +10,8 @@ type Props = {
 };
 
 export default function SectionCard({ height = '45%', children }: Props) {
+  const themeColors = useThemeColors();
+  const styles = makeStyles(themeColors);
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
@@ -18,24 +21,25 @@ export default function SectionCard({ height = '45%', children }: Props) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    position: 'absolute',
-    bottom: 0,
-    backgroundColor: COLORS.WHITE,
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    padding: 20,
-    shadowColor: COLORS.WHITE,
-    shadowOffset: {
-      width: 0,
-      height: 2,
+const makeStyles = ({ colors }: Theme) =>
+  StyleSheet.create({
+    container: {
+      width: '100%',
+      position: 'absolute',
+      bottom: 0,
+      backgroundColor: colors.background,
+      borderTopLeftRadius: 40,
+      borderTopRightRadius: 40,
+      padding: 20,
+      shadowColor: colors.icon,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+  });

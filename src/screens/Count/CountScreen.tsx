@@ -5,19 +5,22 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useLayoutEffect, useState } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, Alert } from 'react-native';
 
-import Button from '../../components/Button';
-import CircularView from '../../components/CircularView';
-import SectionCard from '../../components/SectionCard';
-import ShadowCard from '../../components/ShadowCard';
-import { RootStackParamList } from '../../navigation/types';
-import { COLORS } from '../../theme/colors';
-import { TEXT_SIZES } from '../../theme/layout';
-import { setEntrantCount } from '../../zustand/entrantCount/actions';
-import { selectEntrantCount } from '../../zustand/entrantCount/selectors';
+import Button from '@/components/Button';
+import CircularView from '@/components/CircularView';
+import SectionCard from '@/components/SectionCard';
+import ShadowCard from '@/components/ShadowCard';
+import { useThemeColors } from '@/hooks/useThemeColors';
+import { RootStackParamList } from '@/navigation/types';
+import { Theme } from '@/theme/Colors';
+import { TEXT_SIZES } from '@/theme/Theme';
+import { setEntrantCount } from '@/zustand/entrantCount/actions';
+import { selectEntrantCount } from '@/zustand/entrantCount/selectors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
 
 export default function CountScreen({ navigation }: Props) {
+  const themeColors = useThemeColors();
+  const styles = makeStyles(themeColors);
   const entrantCount = selectEntrantCount();
   const [count, setCount] = useState(entrantCount);
 
@@ -60,13 +63,13 @@ export default function CountScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
-        colors={[COLORS.LIGHT_BLUE, COLORS.NAVY_BLUE]}
+        colors={[themeColors.colors.tint, themeColors.colors.primary]}
         style={styles.background}
       />
       <View style={styles.contentContainer}>
         <CircularView size="size30">
-          <Text style={styles.whiteText}>Count</Text>
-          <Text style={styles.whiteText}>{count}</Text>
+          <Text style={styles.text}>Count</Text>
+          <Text style={styles.text}>{count}</Text>
         </CircularView>
       </View>
       <SectionCard>
@@ -85,42 +88,43 @@ export default function CountScreen({ navigation }: Props) {
         <Button
           onPress={handleResetPressed}
           label="Reset"
-          variant="secondaryRoundedShadow"
+          type="secondaryRoundedShadow"
         />
       </SectionCard>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  background: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    height: '65%',
-  },
-  contentContainer: {
-    height: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  whiteText: {
-    color: COLORS.WHITE,
-    fontSize: TEXT_SIZES.TEXT40,
-  },
-  rowContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  shadowCardContainer: {
-    height: 150,
-    width: 150,
-  },
-});
+const makeStyles = ({ colors }: Theme) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+    },
+    background: {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      height: '65%',
+    },
+    contentContainer: {
+      height: '50%',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    text: {
+      color: colors.text,
+      fontSize: TEXT_SIZES.TEXT40,
+    },
+    rowContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginBottom: 20,
+    },
+    shadowCardContainer: {
+      height: 150,
+      width: 150,
+    },
+  });

@@ -6,7 +6,7 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, StyleSheet, Text } from 'react-native';
 
-import { COLORS } from '../../theme/colors';
+import { COLORS } from '../../theme/Colors';
 import { TAB_ROUTES } from '../routes';
 // import ChatStack from '../stacks/privateStacks/ChatStack';
 import CountStack from '../stacks/privateStacks/CountStack';

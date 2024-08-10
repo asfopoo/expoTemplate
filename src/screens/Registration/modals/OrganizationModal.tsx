@@ -6,7 +6,7 @@ import ButtonLinearGradient from '../../../components/ButtonLinearGradient';
 import Input from '../../../components/Input';
 import Pressable from '../../../components/Pressable';
 import FullScreenModal from '../../../modals/FullScreenModal';
-import { TEXT_SIZES } from '../../../theme/layout';
+import { TEXT_SIZES } from '../../../theme/Theme';
 
 type Props = {
   modalVisible: boolean;
@@ -40,7 +40,7 @@ const OrganziationModal = memo(function OrganziationModal({
           <View style={styles.marginBottom}>
             <Input placeholder="Email" />
           </View>
-          <ButtonLinearGradient label="Submit" variant="primaryRounded" />
+          <ButtonLinearGradient label="Submit" type="primaryRounded" />
         </View>
         <View style={styles.closeIcon}>
           <Pressable onPress={toggleModal}>

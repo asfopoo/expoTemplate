@@ -2,15 +2,21 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
 
 import Pressable from './Pressable';
-import { COLORS } from '../theme/colors';
 
-export default function Header({ navigation }) {
+import { useThemeColors } from '@/hooks/useThemeColors';
+
+type Props = {
+  navigation: any;
+};
+
+export default function Header({ navigation }: Props) {
+  const themeColors = useThemeColors();
   return (
     <Pressable style={styles.header} onPress={navigation.goBack}>
       <MaterialIcons
         name="chevron-left"
         size={32}
-        color={COLORS.NAVY_BLUE}
+        color={themeColors.colors.primary}
         style={[styles.icon]}
       />
     </Pressable>

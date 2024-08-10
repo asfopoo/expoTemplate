@@ -7,7 +7,8 @@ import {
   useWindowDimensions,
 } from 'react-native';
 
-import { COLORS } from '../theme/colors';
+import { useThemeColors } from '@/hooks/useThemeColors';
+import { Theme } from '@/theme/Colors';
 
 type InputProps = TextInputProps & {
   identifier?: string;
@@ -18,6 +19,8 @@ type InputProps = TextInputProps & {
 
 export default function Input(props: InputProps) {
   const { label, error, touched, ...rest } = props;
+  const themeColors = useThemeColors();
+  const styles = makeStyles(themeColors);
   const { width } = useWindowDimensions();
 
   return (
@@ -36,14 +39,15 @@ export default function Input(props: InputProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  errorText: {
-    color: COLORS.RED,
-  },
-  inputStyle: {
-    height: 40,
-    borderBottomWidth: 1,
-    paddingHorizontal: 10,
-    marginVertical: 5,
-  },
-});
+const makeStyles = ({ colors }: Theme) =>
+  StyleSheet.create({
+    errorText: {
+      color: colors.error,
+    },
+    inputStyle: {
+      height: 40,
+      borderBottomWidth: 1,
+      paddingHorizontal: 10,
+      marginVertical: 5,
+    },
+  });

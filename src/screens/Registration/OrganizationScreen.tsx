@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 import Pressable from '../../components/Pressable';
 import { PUBLIC_ROUTES } from '../../navigation/routes';
 import { OrganizationRegistrationScreenNavigationProp } from '../../navigation/types';
-import { TEXT_SIZES } from '../../theme/layout';
+import { TEXT_SIZES } from '../../theme/Theme';
 
 export default function OrganizationScreen() {
   const [modalVisible, toggleModal] = useReducer((state) => {
@@ -49,7 +49,7 @@ export default function OrganizationScreen() {
         <View style={styles.marginBottom}>
           <ButtonLinearGradient
             label="yes"
-            variant="primaryRounded"
+            type="primaryRounded"
             onPress={() => toggleModal()}
           />
         </View>

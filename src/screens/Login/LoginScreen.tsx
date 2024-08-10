@@ -93,17 +93,11 @@ export default function LoginScreen({ navigation }: Props) {
                   );
                 })}
               </View>
-              {/* <Pressable
-                onPress={() => console.log('pressed')}
-                style={styles.forgotPasswordContainer}
-              >
-                <Text>Forgot your password?</Text>
-              </Pressable> */}
               <View style={styles.registrationContainer}>
                 <View style={styles.loginButtonContainer}>
                   <ButtonLinearGradient
                     label={loading ? 'Loading' : 'Login'}
-                    variant="primaryRounded"
+                    type="primaryRounded"
                     onPress={() => handleSubmit()}
                   />
                 </View>

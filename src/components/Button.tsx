@@ -6,80 +6,84 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import { COLORS } from '../theme/colors';
+import { useThemeColors } from '@/hooks/useThemeColors';
+import { Theme } from '@/theme/Colors';
 
-type ButtonVariants =
+type ButtonTypes =
   | 'primaryRounded'
   | 'secondaryRounded'
   | 'secondaryRoundedShadow';
 
 type Props = PressableProps & {
-  variant?: ButtonVariants;
+  type?: ButtonTypes;
   styleProp?: ViewStyle;
   label: string;
 };
 
 export default function Button(props: Props) {
-  const { variant = 'primaryRounded', label, styleProp, ...rest } = props;
-  const style = [styles[variant], styleProp];
+  const themeColors = useThemeColors();
+  const styles = makeStyles(themeColors);
+  const { type = 'primaryRounded', label, styleProp, ...rest } = props;
+  const style = [styles[type], styleProp];
 
   return (
     <Pressable style={style} {...rest}>
-      <Text style={styles[`${variant}Text`]}>{label}</Text>
+      <Text style={styles[`${type}Text`]}>{label}</Text>
     </Pressable>
   );
 }
 
-const styles = StyleSheet.create({
-  primaryRounded: {
-    borderRadius: 25,
-    borderWidth: 1,
-    borderColor: COLORS.NAVY_BLUE,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    backgroundColor: COLORS.NAVY_BLUE,
-    height: 50,
-    width: '90%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  secondaryRounded: {
-    borderRadius: 25,
-    borderWidth: 1,
-    borderColor: COLORS.NAVY_BLUE,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    height: 50,
-    width: '90%',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  primaryRoundedText: {
-    color: COLORS.WHITE,
-  },
-  secondaryRoundedText: {
-    color: COLORS.NAVY_BLUE,
-  },
-  secondaryRoundedShadow: {
-    borderRadius: 25,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    height: 50,
-    width: '90%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: COLORS.WHITE,
-    shadowColor: COLORS.BLACK,
-    shadowOffset: {
-      width: 0,
-      height: 2,
+const makeStyles = ({ colors }: Theme) =>
+  StyleSheet.create({
+    primaryRounded: {
+      borderRadius: 25,
+      borderWidth: 1,
+      borderColor: colors.icon,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      backgroundColor: colors.tint,
+      height: 50,
+      width: '90%',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  secondaryRoundedShadowText: {
-    color: COLORS.NAVY_BLUE,
-    fontWeight: 'bold',
-  },
-});
+    secondaryRounded: {
+      borderRadius: 25,
+      borderWidth: 1,
+      borderColor: colors.border,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      height: 50,
+      width: '90%',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    primaryRoundedText: {
+      color: colors.text,
+    },
+    secondaryRoundedText: {
+      color: colors.tint,
+    },
+    secondaryRoundedShadow: {
+      borderRadius: 25,
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      height: 50,
+      width: '90%',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: colors.background,
+      shadowColor: colors.tabIconDefault,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5,
+    },
+    secondaryRoundedShadowText: {
+      color: colors.tint,
+      fontWeight: 'bold',
+    },
+  });
