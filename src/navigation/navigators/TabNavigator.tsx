@@ -6,7 +6,6 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, StyleSheet, Text } from 'react-native';
 
-import { COLORS } from '../../theme/Colors';
 import { TAB_ROUTES } from '../routes';
 // import ChatStack from '../stacks/privateStacks/ChatStack';
 import CountStack from '../stacks/privateStacks/CountStack';
@@ -16,13 +15,18 @@ import ScannerStack from '../stacks/privateStacks/ScannerStack';
 import SettingsStack from '../stacks/privateStacks/SettingsStack';
 import { TabNavigatorParamList } from '../types';
 
+import { useThemeColors } from '@/hooks/useThemeColors';
+import { Theme } from '@/theme/Colors';
+
 export default function TabNavigator() {
+  const themeColors = useThemeColors();
+  const styles = makeStyles(themeColors);
   const Tab = createBottomTabNavigator<TabNavigatorParamList>();
 
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: COLORS.NAVY_BLUE,
+        tabBarActiveTintColor: themeColors.colors.primary,
         headerShown: false,
         tabBarLabel(props) {
           // show all labels except scanner tab
@@ -91,7 +95,7 @@ export default function TabNavigator() {
         options={{
           tabBarLabel: 'Settings',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="md-settings-outline" {...{ color, size }} />
+            <Ionicons name="settings-outline" {...{ color, size }} />
           ),
         }}
       />
@@ -99,30 +103,31 @@ export default function TabNavigator() {
   );
 }
 
-const styles = StyleSheet.create({
-  buttonContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tabBarStyle: {
-    backgroundColor: COLORS.WHITE,
-    borderTopColor: COLORS.MEDIUM_GRAY,
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    elevation: 0,
-  },
-  scannerButtonStyle: {
-    position: 'absolute',
-    height: 80,
-    width: 80,
-    borderRadius: 40,
-    borderColor: COLORS.NAVY_BLUE,
-    borderWidth: StyleSheet.hairlineWidth,
-    backgroundColor: COLORS.WHITE,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+const makeStyles = ({ colors }: Theme) =>
+  StyleSheet.create({
+    buttonContainer: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    tabBarStyle: {
+      backgroundColor: colors.background,
+      borderTopColor: colors.border,
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      bottom: 0,
+      elevation: 0,
+    },
+    scannerButtonStyle: {
+      position: 'absolute',
+      height: 80,
+      width: 80,
+      borderRadius: 40,
+      borderColor: colors.primary,
+      borderWidth: StyleSheet.hairlineWidth,
+      backgroundColor: colors.background,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+  });

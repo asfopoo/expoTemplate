@@ -2,11 +2,10 @@ import { useNavigation } from '@react-navigation/native';
 import { useLayoutEffect } from 'react';
 import { Text, StyleSheet, SafeAreaView, View, Switch } from 'react-native';
 
-import Header from '../../components/Header';
-import { setIncrementCounterOnScan } from '../../zustand/settings/actions';
-import { selectSettings } from '../../zustand/settings/selectors';
-
+import Header from '@/components/Header';
 import { useThemeColors } from '@/hooks/useThemeColors';
+import { setIncrementCounterOnScan } from '@/zustand/settings/actions';
+import { selectSettings } from '@/zustand/settings/selectors';
 
 const ActionTypes = {
   TOGGLE_INCREMENT_COUNTER_ON_SCAN: 'incrementCounterOnScan',

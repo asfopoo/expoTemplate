@@ -3,9 +3,10 @@ import { useLayoutEffect } from 'react';
 import { StyleSheet, SafeAreaView, View } from 'react-native';
 
 import { settingsOptions } from './constants';
-import OptionsList from '../../components/OptionsList';
-import { useAuth } from '../../hooks/useAuth';
-import { RootStackParamList } from '../../navigation/types';
+
+import OptionsList from '@/components/OptionsList';
+import { useAuth } from '@/hooks/useAuth';
+import { RootStackParamList } from '@/navigation/types';
 
 type Props = {
   navigation: NavigationProp<RootStackParamList, 'Settings Tab'>;

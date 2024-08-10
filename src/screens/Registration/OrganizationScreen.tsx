@@ -3,12 +3,13 @@ import { useLayoutEffect, useReducer } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native';
 
 import OrganizationModal from './modals/OrganizationModal';
-import ButtonLinearGradient from '../../components/ButtonLinearGradient';
-import Header from '../../components/Header';
-import Pressable from '../../components/Pressable';
-import { PUBLIC_ROUTES } from '../../navigation/routes';
-import { OrganizationRegistrationScreenNavigationProp } from '../../navigation/types';
-import { TEXT_SIZES } from '../../theme/Theme';
+
+import ButtonLinearGradient from '@/components/ButtonLinearGradient';
+import Header from '@/components/Header';
+import Pressable from '@/components/Pressable';
+import { PUBLIC_ROUTES } from '@/navigation/routes';
+import { OrganizationRegistrationScreenNavigationProp } from '@/navigation/types';
+import { TEXT_SIZES } from '@/theme/Theme';
 
 export default function OrganizationScreen() {
   const [modalVisible, toggleModal] = useReducer((state) => {

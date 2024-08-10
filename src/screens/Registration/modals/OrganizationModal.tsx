@@ -2,11 +2,11 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { memo } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
-import ButtonLinearGradient from '../../../components/ButtonLinearGradient';
-import Input from '../../../components/Input';
-import Pressable from '../../../components/Pressable';
-import FullScreenModal from '../../../modals/FullScreenModal';
-import { TEXT_SIZES } from '../../../theme/Theme';
+import ButtonLinearGradient from '@/components/ButtonLinearGradient';
+import Input from '@/components/Input';
+import Pressable from '@/components/Pressable';
+import FullScreenModal from '@/modals/FullScreenModal';
+import { TEXT_SIZES } from '@/theme/Theme';
 
 type Props = {
   modalVisible: boolean;

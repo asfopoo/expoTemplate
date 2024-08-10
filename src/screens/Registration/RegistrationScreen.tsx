@@ -12,13 +12,14 @@ import {
 
 import { REGISTRATION_INPUTS, INITIAL_VALUES } from './constants';
 import { REGISTER } from './graphql/mutations';
-import ButtonLinearGradient from '../../components/ButtonLinearGradient';
-import Header from '../../components/Header';
-import Input from '../../components/Input';
-import ScannerLogo from '../../components/ScannerLogo';
-import { PUBLIC_ROUTES } from '../../navigation/routes';
-import { RegistrationScreenNavigationProp } from '../../navigation/types';
-import { registrationSchema } from '../../utils/validationSchemas/registrationValidation';
+
+import ButtonLinearGradient from '@/components/ButtonLinearGradient';
+import Header from '@/components/Header';
+import Input from '@/components/Input';
+import ScannerLogo from '@/components/ScannerLogo';
+import { PUBLIC_ROUTES } from '@/navigation/routes';
+import { RegistrationScreenNavigationProp } from '@/navigation/types';
+import { registrationSchema } from '@/utils/validationSchemas/registrationValidation';
 
 // TODO: Scrollview android?
 

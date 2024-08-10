@@ -12,15 +12,16 @@ import {
 
 import { LOGIN_INPUTS, INITIAL_VALUES } from './constants';
 import { LOGIN } from './graphql/mutations';
-import ButtonLinearGradient from '../../components/ButtonLinearGradient';
-import Input from '../../components/Input';
-import Pressable from '../../components/Pressable';
-import ScannerLogo from '../../components/ScannerLogo';
-import { useAuth } from '../../hooks/useAuth';
-import { PUBLIC_ROUTES } from '../../navigation/routes';
-import { AuthStackParamList } from '../../navigation/types';
-import { loginSchema } from '../../utils/validationSchemas/loginValidation';
-import { setUser } from '../../zustand/user/actions';
+
+import ButtonLinearGradient from '@/components/ButtonLinearGradient';
+import Input from '@/components/Input';
+import Pressable from '@/components/Pressable';
+import ScannerLogo from '@/components/ScannerLogo';
+import { useAuth } from '@/hooks/useAuth';
+import { PUBLIC_ROUTES } from '@/navigation/routes';
+import { AuthStackParamList } from '@/navigation/types';
+import { loginSchema } from '@/utils/validationSchemas/loginValidation';
+import { setUser } from '@/zustand/user/actions';
 
 interface FormValues {
   email: string;
