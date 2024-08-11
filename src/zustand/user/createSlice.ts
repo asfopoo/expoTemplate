@@ -1,7 +1,6 @@
 export type User = {
   id: string;
-  first_name: string; // todo change to camel
-  last_name: string;
+  fullName: string;
   email: string;
   password: string;
   role: string;

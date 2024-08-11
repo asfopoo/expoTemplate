@@ -19,7 +19,7 @@ export default function ProfileScreen({ navigation }: Props) {
   const themeColors = useThemeColors();
   const styles = makeStyles(themeColors);
   const user = selectUser();
-  const backgroundColor = convertStringToColor(user?.first_name || 'Jeff');
+  const backgroundColor = convertStringToColor(user?.fullName || 'Jeff');
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -34,18 +34,15 @@ export default function ProfileScreen({ navigation }: Props) {
         style={styles.background}
       />
       <SectionCard height="70%">
-        <Input
-          editable={false}
-        >{`${user?.first_name} ${user?.last_name}`}</Input>
+        <Input editable={false}>{`${user?.fullName || 'jeff Smith'}`}</Input>
         <Input editable={false}>{user?.email}</Input>
         <Input editable={false}>No Organization</Input>
       </SectionCard>
       <View style={styles.profileImageContainer}>
         <CircularView size="size20" backgroundColor={backgroundColor}>
-          <Text style={styles.initialText}>
-            {user?.first_name[0]}
-            {user?.last_name[0]}
-          </Text>
+          <Text style={styles.initialText}>{`${
+            user?.fullName[0] || 'J'
+          }`}</Text>
         </CircularView>
       </View>
     </View>
