@@ -1,9 +1,8 @@
 import { AntDesign } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useLayoutEffect, useState } from 'react';
-import { View, Text, SafeAreaView, StyleSheet, Alert } from 'react-native';
+import { useLayoutEffect } from 'react';
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
 import Button from '@/components/Button';
 import CircularView from '@/components/CircularView';
@@ -13,52 +12,18 @@ import { useThemeColors } from '@/hooks/useThemeColors';
 import { RootStackParamList } from '@/navigation/types';
 import { Theme } from '@/theme/Colors';
 import { TEXT_SIZES } from '@/theme/Theme';
-import { setEntrantCount } from '@/zustand/entrantCount/actions';
-import { selectEntrantCount } from '@/zustand/entrantCount/selectors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
 
 export default function CountScreen({ navigation }: Props) {
   const themeColors = useThemeColors();
   const styles = makeStyles(themeColors);
-  const entrantCount = selectEntrantCount();
-  const [count, setCount] = useState(entrantCount);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   }, [navigation]);
-
-  const incrementCount = () => {
-    if (count === 9999) return;
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    setCount(count + 1);
-    setEntrantCount(count + 1);
-  };
-
-  const decrementCount = () => {
-    if (count === 0) return;
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    setCount(count - 1);
-    setEntrantCount(count - 1);
-  };
-
-  const resetCount = () => {
-    setCount(0);
-    setEntrantCount(0);
-  };
-
-  const handleResetPressed = () => {
-    if (count === 0) return;
-    Alert.alert('Warning', 'Are you sure you want to Reset the count?', [
-      {
-        text: 'Cancel',
-        style: 'cancel',
-      },
-      { text: 'Reset', onPress: () => resetCount() },
-    ]);
-  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -68,25 +33,24 @@ export default function CountScreen({ navigation }: Props) {
       />
       <View style={styles.contentContainer}>
         <CircularView size="size30">
-          <Text style={styles.text}>Count</Text>
-          <Text style={styles.text}>{count}</Text>
+          <Text style={styles.text}>I do nothing</Text>
         </CircularView>
       </View>
       <SectionCard>
         <View style={styles.rowContainer}>
           <View style={styles.shadowCardContainer}>
-            <ShadowCard onPress={decrementCount}>
+            <ShadowCard>
               <AntDesign name="minus" size={40} color="black" />
             </ShadowCard>
           </View>
           <View style={styles.shadowCardContainer}>
-            <ShadowCard onPress={incrementCount}>
+            <ShadowCard>
               <AntDesign name="plus" size={40} color="black" />
             </ShadowCard>
           </View>
         </View>
         <Button
-          onPress={handleResetPressed}
+          onPress={() => console.log('Reset')}
           label="Reset"
           type="secondaryRoundedShadow"
         />

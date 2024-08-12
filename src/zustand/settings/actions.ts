@@ -1,4 +1,4 @@
-import { Settings } from './createSlice';
+import { Settings, ThemeOption } from './createSlice';
 import { useBoundStore } from '../store';
 
 export function setSettings(settings: Settings) {
@@ -8,5 +8,11 @@ export function setSettings(settings: Settings) {
 export function setIncrementCounterOnScan(incrementCounterOnScan: boolean) {
   useBoundStore.setState((state) => ({
     settings: { ...state.settings, incrementCounterOnScan },
+  }));
+}
+
+export function setTheme(theme: ThemeOption['theme']) {
+  useBoundStore.setState((state) => ({
+    settings: { ...state.settings, theme },
   }));
 }

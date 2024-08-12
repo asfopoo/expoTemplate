@@ -16,7 +16,7 @@ export default function Header({ navigation }: Props) {
       <MaterialIcons
         name="chevron-left"
         size={32}
-        color={themeColors.colors.primary}
+        color={themeColors.colors.text}
         style={[styles.icon]}
       />
     </Pressable>

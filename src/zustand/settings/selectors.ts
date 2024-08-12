@@ -7,3 +7,7 @@ export function selectSettings() {
 export function selectIncrementCounterOnScanSetting() {
   return useBoundStore.getState().settings.incrementCounterOnScan;
 }
+
+export function selectTheme() {
+  return useBoundStore.getState().settings.theme;
+}

@@ -38,6 +38,11 @@ export const settingsOptions: Options[] = [
     // time reset for history, does scanner increment the count
   },
   {
+    title: 'Appearance',
+    icon: 'palette',
+    route: PRIVATE_ROUTES.APPEARANCE_SETTINGS_SCREEN,
+  },
+  {
     title: 'About',
     icon: 'info',
     route: PRIVATE_ROUTES.ABOUT_SCREEN,

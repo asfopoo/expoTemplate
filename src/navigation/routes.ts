@@ -13,6 +13,7 @@ export const PRIVATE_ROUTES = {
   HISTORY_SCREEN: 'History',
   ABOUT_SCREEN: 'About',
   SCANNER_SETTINGS_SCREEN: 'Scanner Settings',
+  APPEARANCE_SETTINGS_SCREEN: 'Appearance Settings',
 } as const;
 
 export const TAB_ROUTES = {
