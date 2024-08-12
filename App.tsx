@@ -8,9 +8,14 @@ import {
 } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect, useState } from 'react';
+import { useColorScheme } from 'react-native';
 
-import { AuthProvider } from './src/context/authProvider';
-import RootNavigator from './src/navigation/navigators/RootNavigator';
+import { AuthProvider } from '@/context/authProvider';
+import RootNavigator from '@/navigation/navigators/RootNavigator';
+import { _navigationThemeDark, _navigationThemeLight } from '@/theme/Colors';
+import { useBoundStore } from '@/zustand/store';
 
 /* const authLink = new ApolloLink((operation, forward) => {
   // get the authentication token from local storage if it exists
@@ -51,8 +56,25 @@ export default function App() {
 // apollo commented out for now for deployment without a server
 
 export default function App() {
+  const storedTheme = useBoundStore((state) => state.settings.theme);
+  const systemTheme = useColorScheme();
+  const derivedTheme = storedTheme || systemTheme || 'light';
+  // status bar theme is the opposite of the navigation theme
+  const statusBarTheme = derivedTheme === 'dark' ? 'light' : 'dark';
+  const [theme, setTheme] = useState(
+    derivedTheme === 'dark' ? _navigationThemeDark : _navigationThemeLight,
+  );
+
+  useEffect(() => {
+    const derivedTheme = storedTheme || systemTheme || 'light';
+    setTheme(
+      derivedTheme === 'dark' ? _navigationThemeDark : _navigationThemeLight,
+    );
+  }, [storedTheme]);
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={theme}>
+      <StatusBar style={statusBarTheme} />
       <AuthProvider>
         <RootNavigator />
       </AuthProvider>

@@ -1,5 +1,5 @@
 export type ThemeOption = {
-  theme: 'System default' | 'light' | 'dark' | undefined;
+  theme: 'light' | 'dark' | undefined;
 };
 
 export type Settings = {

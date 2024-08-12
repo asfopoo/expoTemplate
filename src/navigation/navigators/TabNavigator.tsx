@@ -17,28 +17,27 @@ import { TabNavigatorParamList } from '../types';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { Theme } from '@/theme/Colors';
+import { useEffect } from 'react';
+import { selectTheme } from '@/zustand/settings/selectors';
 
 export default function TabNavigator() {
   const themeColors = useThemeColors();
+  const theme = selectTheme();
   const styles = makeStyles(themeColors);
   const Tab = createBottomTabNavigator<TabNavigatorParamList>();
 
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: themeColors.colors.primary,
+        // tabBarStyle: styles.tabBarStyle,
         headerShown: false,
         tabBarLabel(props) {
-          // show all labels except scanner tab
           return (
             <View style={styles.buttonContainer}>
-              {props.children !== TAB_ROUTES.SCANNER_TAB && (
-                <Text>{props.children}</Text>
-              )}
+              <Text>{props.children}</Text>
             </View>
           );
         },
-        tabBarStyle: styles.tabBarStyle,
       }}
     >
       <Tab.Screen
@@ -65,20 +64,12 @@ export default function TabNavigator() {
         name={TAB_ROUTES.SCANNER_TAB}
         component={ScannerStack}
         options={{
+          tabBarLabel: 'Scanner',
           tabBarIcon: ({ color, size }) => (
-            <View style={styles.scannerButtonStyle}>
-              <MaterialIcons name="qr-code-scanner" {...{ size, color }} />
-            </View>
+            <MaterialIcons name="qr-code-scanner" {...{ size, color }} />
           ),
         }}
       />
-      {/* <Tab.Screen name={TAB_ROUTES.CHAT_TAB} component={ChatStack} 
-            options={{
-              tabBarLabel: 'Chat',
-              tabBarIcon: ({ color, size }) => (
-                <Entypo name="chat" {...{ color, size }} />
-              ),
-            }} /> */}
       <Tab.Screen
         name={TAB_ROUTES.PROFILE_TAB}
         component={ProfileStack}
@@ -118,16 +109,5 @@ const makeStyles = ({ colors }: Theme) =>
       right: 0,
       bottom: 0,
       elevation: 0,
-    },
-    scannerButtonStyle: {
-      position: 'absolute',
-      height: 80,
-      width: 80,
-      borderRadius: 40,
-      borderColor: colors.primary,
-      borderWidth: StyleSheet.hairlineWidth,
-      backgroundColor: colors.background,
-      justifyContent: 'center',
-      alignItems: 'center',
     },
   });
