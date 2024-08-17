@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { useLayoutEffect, useReducer } from 'react';
+import { useReducer } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image } from 'react-native';
 
 import OrganizationModal from './modals/OrganizationModal';
@@ -17,12 +17,6 @@ export default function OrganizationScreen() {
   }, false);
   const navigation =
     useNavigation<OrganizationRegistrationScreenNavigationProp>();
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, [navigation]);
 
   return (
     <SafeAreaView style={styles.container}>

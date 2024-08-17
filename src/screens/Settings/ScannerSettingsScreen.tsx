@@ -1,5 +1,4 @@
 import { useNavigation } from '@react-navigation/native';
-import { useLayoutEffect } from 'react';
 import { Text, StyleSheet, SafeAreaView, View, Switch } from 'react-native';
 
 import Header from '@/components/Header';
@@ -15,12 +14,6 @@ export default function ScannerSettingsScreen() {
   const themeColors = useThemeColors();
   const navigation = useNavigation();
   const settings = selectSettings();
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  });
 
   const handleValueChange = (
     actionType: typeof ActionTypes.TOGGLE_INCREMENT_COUNTER_ON_SCAN,

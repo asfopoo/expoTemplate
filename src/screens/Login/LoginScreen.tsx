@@ -1,7 +1,6 @@
 import { useMutation } from '@apollo/client';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Formik } from 'formik';
-import { useLayoutEffect } from 'react';
 import {
   Text,
   StyleSheet,
@@ -33,12 +32,6 @@ type Props = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 export default function LoginScreen({ navigation }: Props) {
   const { signIn } = useAuth();
   const [loginUser, { loading, error }] = useMutation(LOGIN);
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, [navigation]);
 
   const login = async (values: FormValues) => {
     const { data } = await loginUser({

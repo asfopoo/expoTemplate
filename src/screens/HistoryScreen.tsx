@@ -1,5 +1,4 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { useLayoutEffect } from 'react';
 import { Image, SafeAreaView, StyleSheet, View, Text } from 'react-native';
 
 import { RootStackParamList } from '../navigation/types';
@@ -8,12 +7,6 @@ import { TEXT_SIZES } from '../theme/Theme';
 type Props = NativeStackScreenProps<RootStackParamList, 'History Tab'>;
 
 export default function HistoryScreen({ navigation }: Props) {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, [navigation]);
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>

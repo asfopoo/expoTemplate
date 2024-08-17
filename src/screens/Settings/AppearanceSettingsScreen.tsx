@@ -1,7 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
-import { useLayoutEffect, useState } from 'react';
-import { StyleSheet, Pressable, Appearance } from 'react-native';
+import { useState } from 'react';
+import { StyleSheet, Pressable } from 'react-native';
 
 import Header from '@/components/Header';
 import { SafeAreaView } from '@/components/SafeAreaView';
@@ -44,12 +44,6 @@ export default function AppearanceSettingsScreen() {
   });
   const [themeOptions, setThemeOptions] = useState(initialThemeOptions);
   const navigation = useNavigation();
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  });
 
   function handleSetThemeOption({
     themeSelection,

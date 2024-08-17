@@ -1,6 +1,5 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useLayoutEffect } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 import CircularView from '../components/CircularView';
@@ -20,12 +19,6 @@ export default function ProfileScreen({ navigation }: Props) {
   const styles = makeStyles(themeColors);
   const user = selectUser();
   const backgroundColor = convertStringToColor(user?.fullName || 'Jeff');
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, [navigation]);
 
   return (
     <View style={styles.container}>

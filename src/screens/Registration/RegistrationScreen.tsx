@@ -1,7 +1,6 @@
 import { useMutation } from '@apollo/client';
 import { useNavigation } from '@react-navigation/native';
 import { Formik } from 'formik';
-import { useLayoutEffect } from 'react';
 import {
   View,
   SafeAreaView,
@@ -28,12 +27,6 @@ export default function RegistrationScreen() {
 
   const [registerUser, { data: registerData, loading, error }] =
     useMutation(REGISTER);
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, [navigation]);
 
   const register = async (values) => {
     const { data } = await registerUser({

@@ -1,7 +1,6 @@
 import { AntDesign } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useLayoutEffect } from 'react';
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 
 import Button from '@/components/Button';
@@ -18,12 +17,6 @@ type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
 export default function CountScreen({ navigation }: Props) {
   const themeColors = useThemeColors();
   const styles = makeStyles(themeColors);
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  }, [navigation]);
 
   return (
     <SafeAreaView style={styles.container}>

@@ -1,5 +1,4 @@
 import { NavigationProp } from '@react-navigation/native';
-import { useLayoutEffect } from 'react';
 import { StyleSheet, SafeAreaView, View } from 'react-native';
 
 import { settingsOptions } from './constants';
@@ -14,12 +13,6 @@ type Props = {
 
 export default function SettingsScreen({ navigation }: Props) {
   const { signOut } = useAuth();
-
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: false,
-    });
-  });
 
   const handlePress = (route: string) => {
     if (route === 'SignOut') {
