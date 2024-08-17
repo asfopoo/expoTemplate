@@ -9,7 +9,7 @@ import { View, StyleSheet, Text } from 'react-native';
 import { TAB_ROUTES } from '../routes';
 // import ChatStack from '../stacks/privateStacks/ChatStack';
 import CountStack from '../stacks/privateStacks/CountStack';
-import HistoryStack from '../stacks/privateStacks/HistoryStack';
+import HomeStack from '../stacks/privateStacks/HistoryStack';
 import ProfileStack from '../stacks/privateStacks/ProfileStack';
 import ScannerStack from '../stacks/privateStacks/ScannerStack';
 import SettingsStack from '../stacks/privateStacks/SettingsStack';
@@ -38,12 +38,12 @@ export default function TabNavigator() {
       }}
     >
       <Tab.Screen
-        name={TAB_ROUTES.HISTORY_TAB}
-        component={HistoryStack}
+        name={TAB_ROUTES.HOME_TAB}
+        component={HomeStack}
         options={{
-          tabBarLabel: 'History',
+          tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="history" {...{ color, size }} />
+            <MaterialIcons name="home" {...{ color, size }} />
           ),
         }}
       />

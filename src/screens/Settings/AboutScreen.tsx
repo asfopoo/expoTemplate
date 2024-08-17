@@ -1,10 +1,12 @@
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
-import { Text, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 
 import * as app from '../../../app.json';
 
 import Header from '@/components/Header';
+import { SafeAreaView } from '@/components/SafeAreaView';
+import { Text } from '@/components/Text';
 
 export default function AboutScreen() {
   const navigation = useNavigation();

@@ -47,7 +47,7 @@ export type RootStackParamList = {
   [TAB_ROUTES.SCANNER_TAB]: NavigatorScreenParams<ScannerTabParamList>;
   [TAB_ROUTES.SETTINGS_TAB]: NavigatorScreenParams<SettingsTabParamList>;
   [TAB_ROUTES.PROFILE_TAB]: NavigatorScreenParams<ProfileTabParamList>;
-  [TAB_ROUTES.HISTORY_TAB]: NavigatorScreenParams<HistoryTabParamList>;
+  [TAB_ROUTES.HOME_TAB]: NavigatorScreenParams<HomeTabParamList>;
 };
 
 export type ChatTabScreenProps<T extends keyof ChatTabParamList> =
@@ -80,9 +80,9 @@ export type ProfileTabScreenProps<T extends keyof ProfileTabParamList> =
     RootStackScreenProps<keyof RootStackParamList>
   >;
 
-export type HistoryTabScreenProps<T extends keyof HistoryTabParamList> =
+export type HomeTabScreenProps<T extends keyof HomeTabParamList> =
   CompositeScreenProps<
-    BottomTabScreenProps<HistoryTabParamList, T>,
+    BottomTabScreenProps<HomeTabParamList, T>,
     RootStackScreenProps<keyof RootStackParamList>
   >;
 
@@ -115,8 +115,8 @@ export type ProfileTabParamList = {
   [PRIVATE_ROUTES.PROFILE_SCREEN]: undefined;
 };
 
-export type HistoryTabParamList = {
-  [PRIVATE_ROUTES.HISTORY_SCREEN]: undefined;
+export type HomeTabParamList = {
+  [PRIVATE_ROUTES.HOME_SCREEN]: undefined;
 };
 
 export type TabNavigatorParamList = {
@@ -125,5 +125,5 @@ export type TabNavigatorParamList = {
   [TAB_ROUTES.SCANNER_TAB]: undefined;
   [TAB_ROUTES.SETTINGS_TAB]: undefined;
   [TAB_ROUTES.PROFILE_TAB]: undefined;
-  [TAB_ROUTES.HISTORY_TAB]: undefined;
+  [TAB_ROUTES.HOME_TAB]: undefined;
 };

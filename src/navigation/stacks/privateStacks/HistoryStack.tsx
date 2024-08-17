@@ -1,19 +1,19 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import HistoryScreen from '../../../screens/HistoryScreen';
+import HomeScreen from '../../../screens/HomeScreen';
 import { PRIVATE_ROUTES } from '../../routes';
-import { HistoryTabParamList } from '../../types';
+import { HomeTabParamList } from '../../types';
 
-const HistoryStackNavigator = createNativeStackNavigator<HistoryTabParamList>();
+const HomeStackNavigator = createNativeStackNavigator<HomeTabParamList>();
 
-export default function HistoryStack() {
+export default function HomeStack() {
   return (
-    <HistoryStackNavigator.Navigator>
-      <HistoryStackNavigator.Screen
-        name={PRIVATE_ROUTES.HISTORY_SCREEN}
-        component={HistoryScreen}
+    <HomeStackNavigator.Navigator>
+      <HomeStackNavigator.Screen
+        name={PRIVATE_ROUTES.HOME_SCREEN}
+        component={HomeScreen}
         options={{ headerShown: false }}
       />
-    </HistoryStackNavigator.Navigator>
+    </HomeStackNavigator.Navigator>
   );
 }

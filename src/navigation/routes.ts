@@ -10,7 +10,7 @@ export const PRIVATE_ROUTES = {
   SCANNER_SCREEN: 'Scanner',
   SETTINGS_SCREEN: 'Settings',
   PROFILE_SCREEN: 'Profile',
-  HISTORY_SCREEN: 'History',
+  HOME_SCREEN: 'Home',
   ABOUT_SCREEN: 'About',
   SCANNER_SETTINGS_SCREEN: 'Scanner Settings',
   APPEARANCE_SETTINGS_SCREEN: 'Appearance Settings',
@@ -22,5 +22,5 @@ export const TAB_ROUTES = {
   SCANNER_TAB: 'Scanner Tab',
   SETTINGS_TAB: 'Settings Tab',
   PROFILE_TAB: 'Profile Tab',
-  HISTORY_TAB: 'History Tab',
+  HOME_TAB: 'Home Tab',
 } as const;
