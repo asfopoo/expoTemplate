@@ -1,3 +1,4 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import {
   Pressable,
   Text,
@@ -12,7 +13,8 @@ import { Theme } from '@/theme/colors';
 type ButtonTypes =
   | 'primaryRounded'
   | 'secondaryRounded'
-  | 'secondaryRoundedShadow';
+  | 'secondaryRoundedShadow'
+  | 'gradient';
 
 type Props = PressableProps & {
   type?: ButtonTypes;
@@ -24,7 +26,22 @@ export default function Button(props: Props) {
   const themeColors = useThemeColors();
   const styles = makeStyles(themeColors);
   const { type = 'primaryRounded', label, styleProp, ...rest } = props;
-  const style = [styles[type], styleProp];
+  const style = [styles.button, styles[type], styleProp];
+
+  if (type === 'gradient') {
+    return (
+      <Pressable {...rest}>
+        <LinearGradient
+          colors={[themeColors.colors.primary, themeColors.colors.secondary]}
+          style={style}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+        >
+          <Text>Sign in with Facebook</Text>
+        </LinearGradient>
+      </Pressable>
+    );
+  }
 
   return (
     <Pressable style={style} {...rest}>
@@ -35,28 +52,22 @@ export default function Button(props: Props) {
 
 const makeStyles = ({ colors }: Theme) =>
   StyleSheet.create({
-    primaryRounded: {
-      borderRadius: 25,
-      borderWidth: 1,
-      borderColor: colors.text,
-      paddingVertical: 10,
-      paddingHorizontal: 20,
-      backgroundColor: colors.primary,
-      height: 50,
-      width: '90%',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    secondaryRounded: {
+    button: {
       borderRadius: 25,
       borderWidth: 1,
       borderColor: colors.border,
       paddingVertical: 10,
       paddingHorizontal: 20,
-      height: 50,
-      width: '90%',
       alignItems: 'center',
       justifyContent: 'center',
+      height: 50,
+      width: '90%',
+    },
+    primaryRounded: {
+      backgroundColor: colors.primary,
+    },
+    secondaryRounded: {
+      backgroundColor: colors.background,
     },
     primaryRoundedText: {
       color: colors.text,
@@ -85,5 +96,8 @@ const makeStyles = ({ colors }: Theme) =>
     secondaryRoundedShadowText: {
       color: colors.tint,
       fontWeight: 'bold',
+    },
+    gradient: {
+      // flex: 1,
     },
   });

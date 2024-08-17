@@ -21,7 +21,7 @@ export default function HistoryScreen({ navigation }: Props) {
           Scan an ID to get started. Once you scan an ID, you will be able to
           view the history here.
         </Text>
-        <Button label="Test button" type="primaryRounded" />
+        <Button label="Test button" type="gradient" />
       </View>
     </SafeAreaView>
   );

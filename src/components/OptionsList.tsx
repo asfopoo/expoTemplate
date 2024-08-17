@@ -10,12 +10,10 @@ import { View } from './View';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
 
-type Icon = keyof typeof MaterialIcons.glyphMap;
-
 type Props = {
   options: {
     title: string;
-    icon: Icon;
+    icon: () => JSX.Element;
     route: string;
   }[];
   handlePress: (route: string) => void;
@@ -36,7 +34,7 @@ export default function OptionsList({ options, handlePress }: Props) {
 
 type ItemProps = {
   title: string;
-  icon: Icon;
+  icon: () => JSX.Element;
   route: string;
   handlePress: (route: string) => void;
 };
@@ -47,13 +45,13 @@ const OptionItem = ({ title, icon, route, handlePress }: ItemProps) => {
   return (
     <Pressable onPress={() => handlePress(route)}>
       <View style={styles.option}>
-        <MaterialIcons name={icon} size={28} color={colors.colors.primary} />
+        {icon()}
         <Text style={styles.optionText}>{title}</Text>
         <View style={styles.chevronContainer}>
           <MaterialIcons
             name="chevron-right"
             size={28}
-            color={colors.colors.primary}
+            color={colors.colors.text}
           />
         </View>
       </View>

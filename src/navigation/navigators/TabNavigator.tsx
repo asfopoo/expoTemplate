@@ -27,7 +27,7 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        unmountOnBlur: true,
+        unmountOnBlur: true, // TODO: removed this - currently used to update a changed theme
         tabBarLabel(props) {
           return (
             <View style={styles.buttonContainer}>

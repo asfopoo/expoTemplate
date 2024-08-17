@@ -6,6 +6,7 @@ const darkGray = '#151718';
 const red = '#ff0000';
 const lightYellow = '#F7E9B7';
 const bronze = '#CD7F32';
+const brightYellow = '#FFD700';
 
 export type Theme = {
   colors: {
@@ -31,6 +32,7 @@ export const Colors = {
       notification: red,
       error: red,
       primary: bronze,
+      secondary: brightYellow,
       border: bronze,
       icon: bronze,
       tabIconDefault: mediumGray,
@@ -43,6 +45,7 @@ export const Colors = {
       background: black,
       tint: lightYellow,
       primary: bronze,
+      secondary: brightYellow,
       card: darkGray,
       border: bronze,
       notification: red,
