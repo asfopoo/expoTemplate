@@ -12,6 +12,7 @@ export default function CountStack() {
       <CountStackNavigator.Screen
         name={PRIVATE_ROUTES.COUNT_SCREEN}
         component={CountScreen}
+        options={{ headerShown: false }}
       />
     </CountStackNavigator.Navigator>
   );

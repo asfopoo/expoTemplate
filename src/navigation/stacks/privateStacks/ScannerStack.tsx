@@ -12,6 +12,7 @@ export default function ScannerStack() {
       <ScannerStackNavigator.Screen
         name={PRIVATE_ROUTES.SCANNER_SCREEN}
         component={ScannerScreen}
+        options={{ headerShown: false }}
       />
     </ScannerStackNavigator.Navigator>
   );

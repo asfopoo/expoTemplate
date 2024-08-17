@@ -17,18 +17,22 @@ export default function SettingsStack() {
       <SettingsStackNavigator.Screen
         name={PRIVATE_ROUTES.SETTINGS_SCREEN}
         component={SettingsScreen}
+        options={{ headerShown: false }}
       />
       <SettingsStackNavigator.Screen
         name={PRIVATE_ROUTES.ABOUT_SCREEN}
         component={AboutScreen}
+        options={{ headerShown: false }}
       />
       <SettingsStackNavigator.Screen
         name={PRIVATE_ROUTES.SCANNER_SETTINGS_SCREEN}
         component={ScannerSettingsScreen}
+        options={{ headerShown: false }}
       />
       <SettingsStackNavigator.Screen
         name={PRIVATE_ROUTES.APPEARANCE_SETTINGS_SCREEN}
         component={AppearanceSettingsScreen}
+        options={{ headerShown: false }}
       />
     </SettingsStackNavigator.Navigator>
   );

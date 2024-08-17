@@ -12,6 +12,7 @@ export default function ChatStack() {
       <ChatStackNavigator.Screen
         name={PRIVATE_ROUTES.CHAT_SCREEN}
         component={ChatScreen}
+        options={{ headerShown: false }}
       />
     </ChatStackNavigator.Navigator>
   );

@@ -12,6 +12,7 @@ export default function HistoryStack() {
       <HistoryStackNavigator.Screen
         name={PRIVATE_ROUTES.HISTORY_SCREEN}
         component={HistoryScreen}
+        options={{ headerShown: false }}
       />
     </HistoryStackNavigator.Navigator>
   );

@@ -12,6 +12,7 @@ export default function ProfileStack() {
       <ProfileStackNavigator.Screen
         name={PRIVATE_ROUTES.PROFILE_SCREEN}
         component={ProfileScreen}
+        options={{ headerShown: false }}
       />
     </ProfileStackNavigator.Navigator>
   );
