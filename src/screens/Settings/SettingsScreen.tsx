@@ -1,11 +1,13 @@
 import { NavigationProp } from '@react-navigation/native';
-import { StyleSheet, SafeAreaView, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { settingsOptions } from './constants';
 
 import OptionsList from '@/components/OptionsList';
 import { useAuth } from '@/hooks/useAuth';
 import { RootStackParamList } from '@/navigation/types';
+import { SafeAreaView } from '@/components/SafeAreaView';
+import { View } from '@/components/View';
 
 type Props = {
   navigation: NavigationProp<RootStackParamList, 'Settings Tab'>;

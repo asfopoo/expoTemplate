@@ -27,6 +27,7 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        unmountOnBlur: true,
         tabBarLabel(props) {
           return (
             <View style={styles.buttonContainer}>

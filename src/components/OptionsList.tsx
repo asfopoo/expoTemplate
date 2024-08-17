@@ -2,9 +2,13 @@
  * Used in SettingsScreen.tsx
  */
 import { MaterialIcons } from '@expo/vector-icons';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
 import Pressable from './Pressable';
+import { Text } from './Text';
+import { View } from './View';
+
+import { useThemeColors } from '@/hooks/useThemeColors';
 
 type Icon = keyof typeof MaterialIcons.glyphMap;
 
@@ -38,13 +42,19 @@ type ItemProps = {
 };
 
 const OptionItem = ({ title, icon, route, handlePress }: ItemProps) => {
+  const colors = useThemeColors();
+
   return (
     <Pressable onPress={() => handlePress(route)}>
       <View style={styles.option}>
-        <MaterialIcons name={icon} size={28} color="black" />
+        <MaterialIcons name={icon} size={28} color={colors.colors.primary} />
         <Text style={styles.optionText}>{title}</Text>
         <View style={styles.chevronContainer}>
-          <MaterialIcons name="chevron-right" size={28} color="black" />
+          <MaterialIcons
+            name="chevron-right"
+            size={28}
+            color={colors.colors.primary}
+          />
         </View>
       </View>
     </Pressable>

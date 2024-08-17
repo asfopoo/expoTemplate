@@ -38,10 +38,10 @@ const makeStyles = ({ colors }: Theme) =>
     primaryRounded: {
       borderRadius: 25,
       borderWidth: 1,
-      borderColor: colors.icon,
+      borderColor: colors.text,
       paddingVertical: 10,
       paddingHorizontal: 20,
-      backgroundColor: colors.tint,
+      backgroundColor: colors.primary,
       height: 50,
       width: '90%',
       alignItems: 'center',

@@ -1,21 +1,18 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Image, SafeAreaView, StyleSheet, View, Text } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import { RootStackParamList } from '../navigation/types';
-import { TEXT_SIZES } from '../theme/Theme';
+import Button from '@/components/Button';
+import { SafeAreaView } from '@/components/SafeAreaView';
+import { Text } from '@/components/Text';
+import { View } from '@/components/View';
+import { RootStackParamList } from '@/navigation/types';
+import { TEXT_SIZES } from '@/theme/Theme';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'History Tab'>;
 
 export default function HistoryScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.imageContainer}>
-        <Image
-          source={require('../assets/hand_scan.png')}
-          resizeMode="stretch"
-          style={styles.image}
-        />
-      </View>
       <View style={styles.textContainer}>
         <View style={styles.titleContainer}>
           <Text style={styles.largeText}>You dont have any scans today</Text>
@@ -24,6 +21,7 @@ export default function HistoryScreen({ navigation }: Props) {
           Scan an ID to get started. Once you scan an ID, you will be able to
           view the history here.
         </Text>
+        <Button label="Test button" type="primaryRounded" />
       </View>
     </SafeAreaView>
   );
