@@ -1,7 +1,7 @@
 import { View, StyleSheet, Dimensions } from 'react-native';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { Theme } from '@/theme/Colors';
+import { Theme } from '@/theme/colors';
 
 type Size = 'size30' | 'size20' | 'size10' | 'size5';
 

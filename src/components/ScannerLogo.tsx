@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { TEXT_SIZES } from '../theme/Theme';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { Theme } from '@/theme/Colors';
+import { Theme } from '@/theme/colors';
 
 export default function ScannerLogo() {
   const themeColors = useThemeColors();

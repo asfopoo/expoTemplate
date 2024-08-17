@@ -14,7 +14,7 @@ import { useColorScheme } from 'react-native';
 
 import { AuthProvider } from '@/context/authProvider';
 import RootNavigator from '@/navigation/navigators/RootNavigator';
-import { _navigationThemeDark, _navigationThemeLight } from '@/theme/Colors';
+import { _navigationThemeDark, _navigationThemeLight } from '@/theme/colors';
 import { useBoundStore } from '@/zustand/store';
 
 /* const authLink = new ApolloLink((operation, forward) => {

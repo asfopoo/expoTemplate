@@ -16,20 +16,16 @@ import SettingsStack from '../stacks/privateStacks/SettingsStack';
 import { TabNavigatorParamList } from '../types';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { Theme } from '@/theme/Colors';
-import { useEffect } from 'react';
-import { selectTheme } from '@/zustand/settings/selectors';
+import { Theme } from '@/theme/colors';
 
 export default function TabNavigator() {
   const themeColors = useThemeColors();
-  const theme = selectTheme();
   const styles = makeStyles(themeColors);
   const Tab = createBottomTabNavigator<TabNavigatorParamList>();
 
   return (
     <Tab.Navigator
       screenOptions={{
-        // tabBarStyle: styles.tabBarStyle,
         headerShown: false,
         tabBarLabel(props) {
           return (
@@ -100,14 +96,5 @@ const makeStyles = ({ colors }: Theme) =>
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-    },
-    tabBarStyle: {
-      backgroundColor: colors.background,
-      borderTopColor: colors.border,
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 0,
-      elevation: 0,
     },
   });

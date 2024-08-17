@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { Theme } from '@/theme/Colors';
+import { Theme } from '@/theme/colors';
 
 type InputProps = TextInputProps & {
   identifier?: string;

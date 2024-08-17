@@ -2,7 +2,7 @@ import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { View, StyleSheet, DimensionValue } from 'react-native';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { Theme } from '@/theme/Colors';
+import { Theme } from '@/theme/colors';
 
 type Props = {
   height?: DimensionValue;

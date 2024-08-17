@@ -10,8 +10,8 @@ import SectionCard from '@/components/SectionCard';
 import ShadowCard from '@/components/ShadowCard';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { RootStackParamList } from '@/navigation/types';
-import { Theme } from '@/theme/Colors';
 import { TEXT_SIZES } from '@/theme/Theme';
+import { Theme } from '@/theme/colors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
 

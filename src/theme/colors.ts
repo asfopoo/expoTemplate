@@ -1,5 +1,11 @@
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+const white = '#fff';
+const black = '#000';
+const lightGray = '#ECEDEE';
+const mediumGray = '#9BA1A6';
+const darkGray = '#151718';
+const red = '#ff0000';
+const lightYellow = '#F7E9B7';
+const bronze = '#CD7F32';
 
 export type Theme = {
   colors: {
@@ -18,32 +24,32 @@ export type Theme = {
 export const Colors = {
   light: {
     colors: {
-      text: '#11181C',
-      background: '#fff',
-      tint: tintColorLight,
-      card: '#ECEDEE',
-      notification: '#ff0000',
-      error: '#ff0000',
-      primary: '#0a8ea4',
-      border: '#E2E811',
-      icon: '#687076',
-      tabIconDefault: '#687076',
-      tabIconSelected: tintColorLight,
+      text: black,
+      background: white,
+      tint: lightYellow,
+      card: lightGray,
+      notification: red,
+      error: red,
+      primary: bronze,
+      border: bronze,
+      icon: bronze,
+      tabIconDefault: mediumGray,
+      tabIconSelected: bronze,
     },
   },
   dark: {
     colors: {
-      text: '#ECEDEE',
-      background: '#151718',
-      tint: tintColorDark,
-      primary: '#0a8000',
-      card: '#1D1E20',
-      border: '#E2E811',
-      notification: '#ff0000',
-      icon: '#9BA1A6',
-      tabIconDefault: '#9BA1A6',
-      tabIconSelected: tintColorDark,
-      error: '#ff0000',
+      text: white,
+      background: black,
+      tint: lightYellow,
+      primary: bronze,
+      card: darkGray,
+      border: bronze,
+      notification: red,
+      icon: bronze,
+      tabIconDefault: mediumGray,
+      tabIconSelected: bronze,
+      error: red,
     },
   },
 };

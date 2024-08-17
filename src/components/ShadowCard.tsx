@@ -3,7 +3,7 @@ import { StyleSheet, PressableProps } from 'react-native';
 import Pressable from './Pressable';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { Theme } from '@/theme/Colors';
+import { Theme } from '@/theme/colors';
 
 type Props = PressableProps & {
   children: React.ReactNode;

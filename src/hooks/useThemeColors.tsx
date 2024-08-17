@@ -1,6 +1,6 @@
 import { useColorScheme } from 'react-native';
 
-import { Colors } from '@/theme/Colors';
+import { Colors } from '@/theme/colors';
 import { selectSettings } from '@/zustand/settings/selectors';
 
 type Theme = 'light' | 'dark';

@@ -11,7 +11,7 @@ import { convertStringToColor } from '../utils/helpers';
 import { selectUser } from '../zustand/user/selectors';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { Theme } from '@/theme/Colors';
+import { Theme } from '@/theme/colors';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Profile Tab'>;
 
