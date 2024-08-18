@@ -3,14 +3,14 @@ import { Text, SafeAreaView } from 'react-native';
 
 import { RootStackParamList } from '../navigation/types';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Scanner Tab'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Money Tab'>;
 
-export default function ScannerScreen({ navigation }: Props) {
+export default function MoneyScreen({ navigation }: Props) {
   return (
     <SafeAreaView
       style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
     >
-      <Text>Scanner screen</Text>
+      <Text>Money screen</Text>
     </SafeAreaView>
   );
 }

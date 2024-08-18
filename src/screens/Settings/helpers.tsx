@@ -1,5 +1,4 @@
 import AntDesign from '@expo/vector-icons/AntDesign';
-import Feather from '@expo/vector-icons/Feather';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
@@ -17,11 +16,6 @@ type Props = {
 
 export function getSettingOptions({ iconColor }: Props): Options[] {
   return [
-    {
-      title: 'Scan Settings',
-      icon: () => <Feather name="settings" size={24} color={iconColor} />,
-      route: PRIVATE_ROUTES.SCANNER_SETTINGS_SCREEN,
-    },
     {
       title: 'Appearance',
       icon: () => (

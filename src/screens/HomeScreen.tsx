@@ -1,12 +1,11 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { StyleSheet } from 'react-native';
 
-import Button from '@/components/Button';
 import { SafeAreaView } from '@/components/SafeAreaView';
 import { Text } from '@/components/Text';
 import { View } from '@/components/View';
 import { RootStackParamList } from '@/navigation/types';
-import { SPACING, TEXT_SIZES } from '@/theme/Theme';
+import { SPACING } from '@/theme/Theme';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home Tab'>;
 

@@ -1,7 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import AboutScreen from '../../../screens/Settings/AboutScreen';
-import ScannerSettingsScreen from '../../../screens/Settings/ScannerSettingsScreen';
 import SettingsScreen from '../../../screens/Settings/SettingsScreen';
 import { PRIVATE_ROUTES } from '../../routes';
 import { SettingsTabParamList } from '../../types';
@@ -22,11 +21,6 @@ export default function SettingsStack() {
       <SettingsStackNavigator.Screen
         name={PRIVATE_ROUTES.ABOUT_SCREEN}
         component={AboutScreen}
-        options={{ headerShown: false }}
-      />
-      <SettingsStackNavigator.Screen
-        name={PRIVATE_ROUTES.SCANNER_SETTINGS_SCREEN}
-        component={ScannerSettingsScreen}
         options={{ headerShown: false }}
       />
       <SettingsStackNavigator.Screen

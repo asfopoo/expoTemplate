@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { PRIVATE_ROUTES } from '../../routes';
 import { MetricsTabParamList } from '../../types';
+
 import MetricsScreen from '@/screens/Metrics/MetricsScreen';
 
 const MetricsStackNavigator = createNativeStackNavigator<MetricsTabParamList>();

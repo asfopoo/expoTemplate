@@ -43,7 +43,7 @@ export type AuthStackScreenProps<T extends keyof AuthStackParamList> =
 
 export type RootStackParamList = {
   [TAB_ROUTES.METRICS_TAB]: NavigatorScreenParams<MetricsTabParamList>;
-  [TAB_ROUTES.SCANNER_TAB]: NavigatorScreenParams<ScannerTabParamList>;
+  [TAB_ROUTES.MONEY_TAB]: NavigatorScreenParams<MoneyTabParamList>;
   [TAB_ROUTES.SETTINGS_TAB]: NavigatorScreenParams<SettingsTabParamList>;
   [TAB_ROUTES.PROFILE_TAB]: NavigatorScreenParams<ProfileTabParamList>;
   [TAB_ROUTES.HOME_TAB]: NavigatorScreenParams<HomeTabParamList>;
@@ -55,9 +55,9 @@ export type MetricsTabScreenProps<T extends keyof MetricsTabParamList> =
     RootStackScreenProps<keyof RootStackParamList>
   >;
 
-export type ScannerTabScreenProps<T extends keyof ScannerTabParamList> =
+export type MoneyTabScreenProps<T extends keyof MoneyTabParamList> =
   CompositeScreenProps<
-    BottomTabScreenProps<ScannerTabParamList, T>,
+    BottomTabScreenProps<MoneyTabParamList, T>,
     RootStackScreenProps<keyof RootStackParamList>
   >;
 
@@ -89,14 +89,13 @@ export type MetricsTabParamList = {
   [PRIVATE_ROUTES.METRICS_SCREEN]: undefined;
 };
 
-export type ScannerTabParamList = {
-  [PRIVATE_ROUTES.SCANNER_SCREEN]: undefined;
+export type MoneyTabParamList = {
+  [PRIVATE_ROUTES.MONEY_SCREEN]: undefined;
 };
 
 export type SettingsTabParamList = {
   [PRIVATE_ROUTES.SETTINGS_SCREEN]: undefined;
   [PRIVATE_ROUTES.ABOUT_SCREEN]: undefined;
-  [PRIVATE_ROUTES.SCANNER_SETTINGS_SCREEN]: undefined;
   [PRIVATE_ROUTES.APPEARANCE_SETTINGS_SCREEN]: undefined;
 };
 
@@ -110,7 +109,7 @@ export type HomeTabParamList = {
 
 export type TabNavigatorParamList = {
   [TAB_ROUTES.METRICS_TAB]: undefined;
-  [TAB_ROUTES.SCANNER_TAB]: undefined;
+  [TAB_ROUTES.MONEY_TAB]: undefined;
   [TAB_ROUTES.SETTINGS_TAB]: undefined;
   [TAB_ROUTES.PROFILE_TAB]: undefined;
   [TAB_ROUTES.HOME_TAB]: undefined;

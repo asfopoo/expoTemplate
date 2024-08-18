@@ -1,19 +1,20 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import ScannerScreen from '../../../screens/ScannerScreen';
 import { PRIVATE_ROUTES } from '../../routes';
-import { ScannerTabParamList } from '../../types';
 
-const ScannerStackNavigator = createNativeStackNavigator<ScannerTabParamList>();
+import { MoneyTabParamList } from '@/navigation/types';
+import MoneyScreen from '@/screens/MoneyScreen';
 
-export default function ScannerStack() {
+const MoneyStackNavigator = createNativeStackNavigator<MoneyTabParamList>();
+
+export default function MoneyStack() {
   return (
-    <ScannerStackNavigator.Navigator>
-      <ScannerStackNavigator.Screen
-        name={PRIVATE_ROUTES.SCANNER_SCREEN}
-        component={ScannerScreen}
+    <MoneyStackNavigator.Navigator>
+      <MoneyStackNavigator.Screen
+        name={PRIVATE_ROUTES.MONEY_SCREEN}
+        component={MoneyScreen}
         options={{ headerShown: false }}
       />
-    </ScannerStackNavigator.Navigator>
+    </MoneyStackNavigator.Navigator>
   );
 }

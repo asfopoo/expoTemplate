@@ -1,9 +1,4 @@
-import {
-  MaterialCommunityIcons,
-  MaterialIcons,
-  Ionicons,
-  Foundation,
-} from '@expo/vector-icons';
+import { MaterialIcons, Ionicons, Foundation } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, StyleSheet, Text } from 'react-native';
 
@@ -11,7 +6,7 @@ import { TAB_ROUTES } from '../routes';
 import HomeStack from '../stacks/privateStacks/HistoryStack';
 import MetricsStack from '../stacks/privateStacks/MetricsStack';
 import ProfileStack from '../stacks/privateStacks/ProfileStack';
-import ScannerStack from '../stacks/privateStacks/ScannerStack';
+import MoneyStack from '../stacks/privateStacks/ScannerStack';
 import SettingsStack from '../stacks/privateStacks/SettingsStack';
 import { TabNavigatorParamList } from '../types';
 
@@ -58,12 +53,12 @@ export default function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name={TAB_ROUTES.SCANNER_TAB}
-        component={ScannerStack}
+        name={TAB_ROUTES.MONEY_TAB}
+        component={MoneyStack}
         options={{
-          tabBarLabel: 'Scanner',
+          tabBarLabel: 'Money',
           tabBarIcon: ({ color, size }) => (
-            <MaterialIcons name="qr-code-scanner" {...{ size, color }} />
+            <MaterialIcons name="attach-money" {...{ color, size }} />
           ),
         }}
       />
