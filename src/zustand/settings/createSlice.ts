@@ -3,7 +3,6 @@ export type ThemeOption = {
 };
 
 export type Settings = {
-  incrementCounterOnScan: boolean;
   theme: ThemeOption['theme'];
 };
 
@@ -13,7 +12,6 @@ export type SettingsSlice = {
 
 export const createSettingsSlice = () => ({
   settings: {
-    incrementCounterOnScan: true,
     theme: undefined,
   },
 });

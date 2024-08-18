@@ -2,14 +2,14 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
   Ionicons,
+  Foundation,
 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, StyleSheet, Text } from 'react-native';
 
 import { TAB_ROUTES } from '../routes';
-// import ChatStack from '../stacks/privateStacks/ChatStack';
-import CountStack from '../stacks/privateStacks/CountStack';
 import HomeStack from '../stacks/privateStacks/HistoryStack';
+import MetricsStack from '../stacks/privateStacks/MetricsStack';
 import ProfileStack from '../stacks/privateStacks/ProfileStack';
 import ScannerStack from '../stacks/privateStacks/ScannerStack';
 import SettingsStack from '../stacks/privateStacks/SettingsStack';
@@ -48,12 +48,12 @@ export default function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name={TAB_ROUTES.COUNT_TAB}
-        component={CountStack}
+        name={TAB_ROUTES.METRICS_TAB}
+        component={MetricsStack}
         options={{
-          tabBarLabel: 'Counter',
+          tabBarLabel: 'Metrics',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="counter" {...{ color, size }} />
+            <Foundation name="graph-bar" {...{ color, size }} />
           ),
         }}
       />

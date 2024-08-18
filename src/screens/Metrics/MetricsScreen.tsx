@@ -12,9 +12,9 @@ import { RootStackParamList } from '@/navigation/types';
 import { TEXT_SIZES } from '@/theme/Theme';
 import { Theme } from '@/theme/colors';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Count Tab'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Metrics Tab'>;
 
-export default function CountScreen({ navigation }: Props) {
+export default function MetricsScreen({ navigation }: Props) {
   const themeColors = useThemeColors();
   const styles = makeStyles(themeColors);
 

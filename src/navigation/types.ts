@@ -42,23 +42,16 @@ export type AuthStackScreenProps<T extends keyof AuthStackParamList> =
 /** Private routes **/
 
 export type RootStackParamList = {
-  [TAB_ROUTES.CHAT_TAB]: NavigatorScreenParams<ChatTabParamList>;
-  [TAB_ROUTES.COUNT_TAB]: NavigatorScreenParams<CountTabParamList>;
+  [TAB_ROUTES.METRICS_TAB]: NavigatorScreenParams<MetricsTabParamList>;
   [TAB_ROUTES.SCANNER_TAB]: NavigatorScreenParams<ScannerTabParamList>;
   [TAB_ROUTES.SETTINGS_TAB]: NavigatorScreenParams<SettingsTabParamList>;
   [TAB_ROUTES.PROFILE_TAB]: NavigatorScreenParams<ProfileTabParamList>;
   [TAB_ROUTES.HOME_TAB]: NavigatorScreenParams<HomeTabParamList>;
 };
 
-export type ChatTabScreenProps<T extends keyof ChatTabParamList> =
+export type MetricsTabScreenProps<T extends keyof MetricsTabParamList> =
   CompositeScreenProps<
-    BottomTabScreenProps<ChatTabParamList, T>,
-    RootStackScreenProps<keyof RootStackParamList>
-  >;
-
-export type CountTabScreenProps<T extends keyof CountTabParamList> =
-  CompositeScreenProps<
-    BottomTabScreenProps<CountTabParamList, T>,
+    BottomTabScreenProps<MetricsTabParamList, T>,
     RootStackScreenProps<keyof RootStackParamList>
   >;
 
@@ -92,12 +85,8 @@ declare global {
   }
 }
 
-export type ChatTabParamList = {
-  [PRIVATE_ROUTES.CHAT_SCREEN]: undefined;
-};
-
-export type CountTabParamList = {
-  [PRIVATE_ROUTES.COUNT_SCREEN]: undefined;
+export type MetricsTabParamList = {
+  [PRIVATE_ROUTES.METRICS_SCREEN]: undefined;
 };
 
 export type ScannerTabParamList = {
@@ -120,8 +109,7 @@ export type HomeTabParamList = {
 };
 
 export type TabNavigatorParamList = {
-  [TAB_ROUTES.CHAT_TAB]: undefined;
-  [TAB_ROUTES.COUNT_TAB]: undefined;
+  [TAB_ROUTES.METRICS_TAB]: undefined;
   [TAB_ROUTES.SCANNER_TAB]: undefined;
   [TAB_ROUTES.SETTINGS_TAB]: undefined;
   [TAB_ROUTES.PROFILE_TAB]: undefined;

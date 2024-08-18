@@ -3,29 +3,10 @@ import { Text, StyleSheet, SafeAreaView, View, Switch } from 'react-native';
 
 import Header from '@/components/Header';
 import { useThemeColors } from '@/hooks/useThemeColors';
-import { setIncrementCounterOnScan } from '@/zustand/settings/actions';
-import { selectSettings } from '@/zustand/settings/selectors';
-
-const ActionTypes = {
-  TOGGLE_INCREMENT_COUNTER_ON_SCAN: 'incrementCounterOnScan',
-};
 
 export default function ScannerSettingsScreen() {
   const themeColors = useThemeColors();
   const navigation = useNavigation();
-  const settings = selectSettings();
-
-  const handleValueChange = (
-    actionType: typeof ActionTypes.TOGGLE_INCREMENT_COUNTER_ON_SCAN,
-  ) => {
-    switch (actionType) {
-      case ActionTypes.TOGGLE_INCREMENT_COUNTER_ON_SCAN:
-        setIncrementCounterOnScan(!settings.incrementCounterOnScan);
-        break;
-      default:
-        break;
-    }
-  };
 
   return (
     <SafeAreaView>
@@ -37,10 +18,6 @@ export default function ScannerSettingsScreen() {
             true: themeColors.colors.tint,
           }}
           thumbColor={themeColors.colors.background}
-          onValueChange={() =>
-            handleValueChange(ActionTypes.TOGGLE_INCREMENT_COUNTER_ON_SCAN)
-          }
-          value={settings?.incrementCounterOnScan}
         />
       </View>
     </SafeAreaView>

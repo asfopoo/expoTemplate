@@ -6,7 +6,7 @@ export const PUBLIC_ROUTES = {
 
 export const PRIVATE_ROUTES = {
   CHAT_SCREEN: 'Chat',
-  COUNT_SCREEN: 'Count',
+  METRICS_SCREEN: 'Metrics',
   SCANNER_SCREEN: 'Scanner',
   SETTINGS_SCREEN: 'Settings',
   PROFILE_SCREEN: 'Profile',
@@ -18,7 +18,7 @@ export const PRIVATE_ROUTES = {
 
 export const TAB_ROUTES = {
   CHAT_TAB: 'Chat Tab',
-  COUNT_TAB: 'Count Tab',
+  METRICS_TAB: 'Metrics Tab',
   SCANNER_TAB: 'Scanner Tab',
   SETTINGS_TAB: 'Settings Tab',
   PROFILE_TAB: 'Profile Tab',
