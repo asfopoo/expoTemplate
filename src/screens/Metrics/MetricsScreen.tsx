@@ -1,12 +1,6 @@
-import { AntDesign } from '@expo/vector-icons';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { LinearGradient } from 'expo-linear-gradient';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import { Text, SafeAreaView, StyleSheet } from 'react-native';
 
-import Button from '@/components/Button';
-import CircularView from '@/components/CircularView';
-import SectionCard from '@/components/SectionCard';
-import ShadowCard from '@/components/ShadowCard';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { RootStackParamList } from '@/navigation/types';
 import { TEXT_SIZES } from '@/theme/Theme';
@@ -20,34 +14,7 @@ export default function MetricsScreen({ navigation }: Props) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
-        colors={[themeColors.colors.tint, themeColors.colors.primary]}
-        style={styles.background}
-      />
-      <View style={styles.contentContainer}>
-        <CircularView size="size30">
-          <Text style={styles.text}>I do nothing</Text>
-        </CircularView>
-      </View>
-      <SectionCard>
-        <View style={styles.rowContainer}>
-          <View style={styles.shadowCardContainer}>
-            <ShadowCard>
-              <AntDesign name="minus" size={40} color="black" />
-            </ShadowCard>
-          </View>
-          <View style={styles.shadowCardContainer}>
-            <ShadowCard>
-              <AntDesign name="plus" size={40} color="black" />
-            </ShadowCard>
-          </View>
-        </View>
-        <Button
-          onPress={() => console.log('Reset')}
-          label="Reset"
-          type="secondaryRoundedShadow"
-        />
-      </SectionCard>
+      <Text>Metrix screen</Text>
     </SafeAreaView>
   );
 }
