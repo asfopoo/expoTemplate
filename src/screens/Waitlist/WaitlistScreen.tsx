@@ -7,17 +7,13 @@ import { View } from '@/components/View';
 import { RootStackParamList } from '@/navigation/types';
 import { SPACING } from '@/theme/Theme';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home Tab'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Waitlist Tab'>;
 
-export default function HomeScreen({ navigation }: Props) {
+export default function WaitlistScreen({ navigation }: Props) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.dailyContainer}>
-        <Text>Intro card</Text>
-        <Text>Today's overview</Text>
-        <Text>breaking down income by service type, day, or month.</Text>
-        <Text>Wait list</Text>
-        <Text>Inventory Management</Text>
+        <Text>Waitlist</Text>
       </View>
     </SafeAreaView>
   );

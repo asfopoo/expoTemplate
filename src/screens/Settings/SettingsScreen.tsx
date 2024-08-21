@@ -5,6 +5,7 @@ import { getSettingOptions } from './helpers';
 
 import OptionsList from '@/components/OptionsList';
 import { SafeAreaView } from '@/components/SafeAreaView';
+import { Text } from '@/components/Text';
 import { View } from '@/components/View';
 import { useAuth } from '@/hooks/useAuth';
 import { useThemeColors } from '@/hooks/useThemeColors';
@@ -34,6 +35,15 @@ export default function SettingsScreen({ navigation }: Props) {
     <SafeAreaView>
       <View style={styles.container}>
         <OptionsList options={settingsOptions} handlePress={handlePress} />
+        <View style={{ marginTop: 200 }}>
+          <Text>
+            Offer access to a library of tutorials or training materials on new
+            techniques, styles, or business management tips.
+          </Text>
+          <Text>
+            Offer integration with tax preparation software or services.
+          </Text>
+        </View>
       </View>
     </SafeAreaView>
   );

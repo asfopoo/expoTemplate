@@ -13,6 +13,7 @@ export const PRIVATE_ROUTES = {
   HOME_SCREEN: 'Home',
   ABOUT_SCREEN: 'About',
   APPEARANCE_SETTINGS_SCREEN: 'Appearance Settings',
+  WAITLIST_SCREEN: 'Waitlist',
 } as const;
 
 export const TAB_ROUTES = {
@@ -22,4 +23,5 @@ export const TAB_ROUTES = {
   SETTINGS_TAB: 'Settings Tab',
   PROFILE_TAB: 'Profile Tab',
   HOME_TAB: 'Home Tab',
+  WAITLIST_TAB: 'Waitlist Tab',
 } as const;

@@ -1,13 +1,18 @@
-import { MaterialIcons, Ionicons, Foundation } from '@expo/vector-icons';
+import {
+  MaterialIcons,
+  Ionicons,
+  Foundation,
+  Entypo,
+} from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { View, StyleSheet, Text } from 'react-native';
 
 import { TAB_ROUTES } from '../routes';
 import HomeStack from '../stacks/privateStacks/HistoryStack';
 import MetricsStack from '../stacks/privateStacks/MetricsStack';
-import ProfileStack from '../stacks/privateStacks/ProfileStack';
 import MoneyStack from '../stacks/privateStacks/ScannerStack';
 import SettingsStack from '../stacks/privateStacks/SettingsStack';
+import WaitlistStack from '../stacks/privateStacks/WaitlistStack';
 import { TabNavigatorParamList } from '../types';
 
 import { useThemeColors } from '@/hooks/useThemeColors';
@@ -62,12 +67,12 @@ export default function TabNavigator() {
         }}
       />
       <Tab.Screen
-        name={TAB_ROUTES.PROFILE_TAB}
-        component={ProfileStack}
+        name={TAB_ROUTES.WAITLIST_TAB}
+        component={WaitlistStack}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Waitlist',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person-outline" {...{ color, size }} />
+            <Entypo name="list" {...{ color, size }} />
           ),
         }}
       />

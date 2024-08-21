@@ -45,7 +45,7 @@ export type RootStackParamList = {
   [TAB_ROUTES.METRICS_TAB]: NavigatorScreenParams<MetricsTabParamList>;
   [TAB_ROUTES.MONEY_TAB]: NavigatorScreenParams<MoneyTabParamList>;
   [TAB_ROUTES.SETTINGS_TAB]: NavigatorScreenParams<SettingsTabParamList>;
-  [TAB_ROUTES.PROFILE_TAB]: NavigatorScreenParams<ProfileTabParamList>;
+  [TAB_ROUTES.WAITLIST_TAB]: NavigatorScreenParams<WaitlistTabParamList>;
   [TAB_ROUTES.HOME_TAB]: NavigatorScreenParams<HomeTabParamList>;
 };
 
@@ -70,6 +70,12 @@ export type SettingsTabScreenProps<T extends keyof SettingsTabParamList> =
 export type ProfileTabScreenProps<T extends keyof ProfileTabParamList> =
   CompositeScreenProps<
     BottomTabScreenProps<ProfileTabParamList, T>,
+    RootStackScreenProps<keyof RootStackParamList>
+  >;
+
+export type WaitlistTabScreenProps<T extends keyof WaitlistTabParamList> =
+  CompositeScreenProps<
+    BottomTabScreenProps<WaitlistTabParamList, T>,
     RootStackScreenProps<keyof RootStackParamList>
   >;
 
@@ -101,6 +107,10 @@ export type SettingsTabParamList = {
 
 export type ProfileTabParamList = {
   [PRIVATE_ROUTES.PROFILE_SCREEN]: undefined;
+};
+
+export type WaitlistTabParamList = {
+  [PRIVATE_ROUTES.WAITLIST_SCREEN]: undefined;
 };
 
 export type HomeTabParamList = {
