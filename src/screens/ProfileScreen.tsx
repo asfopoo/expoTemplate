@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Text, View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import CircularView from '../components/CircularView';
 import Input from '../components/Input';
@@ -9,6 +9,8 @@ import { RootStackParamList } from '../navigation/types';
 import { convertStringToColor } from '../utils/helpers';
 import { selectUser } from '../zustand/user/selectors';
 
+import { Text } from '@/components/Text';
+import { View } from '@/components/View';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { Theme } from '@/theme/colors';
 
@@ -42,7 +44,7 @@ export default function ProfileScreen({ navigation }: Props) {
   );
 }
 
-const HEIGHT_POSITION = '30%';
+const HEIGHT_POSITION = '35%';
 
 const makeStyles = ({ colors }: Theme) =>
   StyleSheet.create({
@@ -59,6 +61,7 @@ const makeStyles = ({ colors }: Theme) =>
       top: '12.5%',
       alignItems: 'center',
       justifyContent: 'center',
+      backgroundColor: 'transparent',
     },
     initialText: {
       fontSize: 30,

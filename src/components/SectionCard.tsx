@@ -15,7 +15,7 @@ export default function SectionCard({ height = '45%', children }: Props) {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <View style={[styles.container, { marginBottom: tabBarHeight, height }]}>
+    <View style={[styles.container, { paddingBottom: tabBarHeight, height }]}>
       {children}
     </View>
   );
@@ -24,6 +24,8 @@ export default function SectionCard({ height = '45%', children }: Props) {
 const makeStyles = ({ colors }: Theme) =>
   StyleSheet.create({
     container: {
+      borderColor: colors.border,
+      borderWidth: 1,
       width: '100%',
       position: 'absolute',
       bottom: 0,
