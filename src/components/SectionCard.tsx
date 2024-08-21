@@ -24,8 +24,6 @@ export default function SectionCard({ height = '45%', children }: Props) {
 const makeStyles = ({ colors }: Theme) =>
   StyleSheet.create({
     container: {
-      borderColor: colors.border,
-      borderWidth: 1,
       width: '100%',
       position: 'absolute',
       bottom: 0,

@@ -1,7 +1,7 @@
 import { useColorScheme } from 'react-native';
 
 import { Colors } from '@/theme/colors';
-import { selectSettings } from '@/zustand/settings/selectors';
+import { useBoundStore } from '@/zustand/store';
 
 type Theme = 'light' | 'dark';
 
@@ -9,8 +9,8 @@ type Props = { providedTheme?: Theme };
 
 export function useThemeColors({ providedTheme }: Props = {}) {
   const deviceTheme = useColorScheme();
-  const savedTheme = selectSettings().theme;
-  const theme = savedTheme || providedTheme || deviceTheme || 'light';
+  const storedTheme = useBoundStore((state) => state.settings.theme);
+  const theme = storedTheme || providedTheme || deviceTheme || 'light';
 
   return Colors[theme as Theme];
 }

@@ -66,7 +66,6 @@ export default function App() {
   );
 
   useEffect(() => {
-    const derivedTheme = storedTheme || systemTheme || 'light';
     setTheme(
       derivedTheme === 'dark' ? _navigationThemeDark : _navigationThemeLight,
     );
