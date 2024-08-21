@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Text, SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
+import { Text } from '@/components/Text';
 import { useThemeColors } from '@/hooks/useThemeColors';
 import { RootStackParamList } from '@/navigation/types';
 import { TEXT_SIZES } from '@/theme/Theme';

@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingHorizontal: 10,
+    marginBottom: 20,
   },
   icon: {
     position: 'absolute',

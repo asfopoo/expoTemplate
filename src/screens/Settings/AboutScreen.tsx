@@ -81,14 +81,8 @@ export default function AboutScreen() {
   );
 }
 
-/* 
-Ads:
-https://ammarahm-ed.github.io/react-native-admob-native-ads/docs/installation-3/
-*/
-
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 40,
     paddingHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',

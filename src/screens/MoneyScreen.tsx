@@ -1,7 +1,9 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { Text, SafeAreaView } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 import { RootStackParamList } from '../navigation/types';
+
+import { Text } from '@/components/Text';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Money Tab'>;
 

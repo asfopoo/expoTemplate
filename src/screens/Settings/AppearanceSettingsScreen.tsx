@@ -18,6 +18,10 @@ type ThemeSelection = {
   isSelected: boolean;
 };
 
+type setThemeOption = {
+  themeSelection: ThemeSelection;
+};
+
 const initialThemeOptions: ThemeSelection[] = [
   {
     title: 'System default',
@@ -45,11 +49,7 @@ export default function AppearanceSettingsScreen() {
   const [themeOptions, setThemeOptions] = useState(initialThemeOptions);
   const navigation = useNavigation();
 
-  function handleSetThemeOption({
-    themeSelection,
-  }: {
-    themeSelection: ThemeSelection;
-  }) {
+  function handleSetThemeOption({ themeSelection }: setThemeOption) {
     const updatedThemeOptions = themeOptions.map((option) => {
       if (option.title === themeSelection.title) {
         return { ...option, isSelected: true };
